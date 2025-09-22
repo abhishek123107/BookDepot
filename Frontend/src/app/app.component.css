@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #759db3, #3b3a13);
+  position: static;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12, 3, 19, 0.05);
+  padding: 20px 20px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1100px;
+}
+a:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+  
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  margin-top: 40px;
+  border-radius: 12px;
+}
+
+.footer p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #aaa;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.fancy-button {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.4);
+  transition: all 0.3s ease;
+}
+
+.fancy-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+
+.fancy-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+}

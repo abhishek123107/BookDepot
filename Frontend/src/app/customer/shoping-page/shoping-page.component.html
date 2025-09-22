@@ -1,0 +1,22 @@
+<div class="body">
+  <h1>My Shop</h1>
+<div class="products" id="products"></div>
+
+<div class="cart" id="cart" *ngIf="book">
+  <img [src]="book.image" alt="{{ book.title }}" >
+  <p><strong>Items in Cart:</strong></p>
+  <h4>{{ book.title }}</h4>
+  <p>Author: {{ book.author }}</p>
+  <p>Price: {{ book.price }} {{ book.currency }}</p>
+  <p><strong>Total:</strong> ₹ {{ book.price * count }}<span id="cart-total"></span></p>
+  <div class="checkout">
+    <div>
+    <button  class="btn btn-secondary" (click)="count = count - 1" [disabled]="count <= 1">Min Cart</button>
+    <span class="value">{{ count }}</span>
+    <button class="btn btn-success" (click)="addCart()">+add Cart </button>
+  </div>
+    <button class="btn btn-primary" (click)="OrderPage()">Order Now </button>
+  </div>
+</div>
+</div>
+

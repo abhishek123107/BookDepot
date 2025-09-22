@@ -1,0 +1,50 @@
+
+<body>
+  <header>
+    <h1>Our Services</h1>
+    <p>We provide high-quality solutions to help your business grow</p>
+  </header>
+<router-outlet></router-outlet>
+  <section class="services">
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Web Development">
+      <a routerLink="libarary"><h3>App Development</h3></a> 
+      <p>Custom, responsive websites built with modern technologies to meet your needs.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055689.png" alt="Mobile Apps">
+      <a routerLink="libarary"><h3>Mobile App Development</h3></a> 
+      <p>Cross-platform mobile apps for Android and iOS to reach more customers.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055688.png" alt="SEO Optimization">
+      <a routerLink="libarary"><h3>SEO Optimisation</h3></a> 
+      <p>Improve your website’s ranking and get more organic traffic from search engines.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055690.png" alt="Digital Marketing">
+      <a routerLink="libarary"><h3>Digital Marketing</h3></a> 
+      <p>Effective marketing strategies to boost your brand visibility and engagement.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="write.png" alt="Content Writing">
+      <a routerLink="libarary"><h3>Content Writing</h3></a> 
+      <p>Engaging and informative content to attract and retain your target audience.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="liberary.png" alt="Library Management">
+     <a [routerLink]="['/customer/libarary']"><h3>Library Management</h3></a> 
+      <p>Effective strategies to boost your library's visibility and engagement.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Company Name. All Rights Reserved.</p>
+  </footer>
+</body>
+

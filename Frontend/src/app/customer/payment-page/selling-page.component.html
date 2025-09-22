@@ -1,0 +1,30 @@
+
+<div class="body">
+  <div class="container">
+    <div class="header">
+      <h2>Payments</h2>
+      <span class="secure">100% Secure</span>
+    </div>
+
+    <div class="amount">
+      <span>Total Amount</span>
+      <strong></strong>
+    </div>
+    <div  class="section other-methods" *ngFor="let option of paymentOption">
+  <label>
+    <input
+      type="radio"
+      name="payment"
+      [value]="option"
+      (change)="onpaymentOptionChange(option)"
+    />
+    {{ option }}
+  </label>
+
+  <!-- Pay button appears below the selected option -->
+  <div class="pay-btn" *ngIf="selectedOption === option">
+    <button (click)="pay()">Pay</button>
+  </div>
+</div>
+  </div>
+</div>

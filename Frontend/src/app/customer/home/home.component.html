@@ -1,0 +1,52 @@
+
+<div class="body">
+   <main class="hero-section">
+    <router-outlet />
+    <div class="hero-content">
+      
+      <img src="Image\f0150014-800px-wm.jpg" alt="Futuristic Interface" />
+      <div class="text-content">
+        <h1>Welcome to Our Book Depot</h1>
+        <p>
+          A Book Depot is more than just a place to buy books – it is a hub of knowledge and learning. Whether you need school textbooks, competitive exam guides, or your favorite novels, a book depot serves every reader’s need. Modern book depots are evolving with interactive designs and online platforms, making the experience clean, elegant, and easy for everyone.
+        <br><h5 style="color: rgb(144, 5, 5);">{{currentDate}}</h5>
+        </p>
+        <button>Learn More</button>
+      </div>
+    </div>
+  </main>
+
+  <section class="features">
+    <div class="card" >
+      <a [routerLink]="['/customer/home/educational']"><h3>Academic/Educational Books </h3></a>
+      <p>These books are used for formal learning in schools, colleges, and universities. They include textbooks, reference materials, and exam guides.</p>
+
+    </div>
+    <div class="card">
+     <a [routerLink]="['/customer/home/fiction']"><h3>Literature & fiction Books</h3></a> 
+      <p>Fictional books like novels, short stories, and poetry entertain and inspire imagination. They reflect emotions, culture, and human experiences</p>
+    </div>
+    <div class="card">
+      <a [routerLink]="['/customer/home/non-fiction']"><h3>Non-Fiction Books</h3></a>
+      <p>These books provide real-life knowledge on topics like history, politics, and self-development. They are based on facts, research, and true stories</p>
+    </div>
+    <div class="card">
+      <a [routerLink]="['/customer/home/religious']"><h3>Religious & Spiritual Books</h3></a>
+      <p>They include holy scriptures and texts on philosophy and meditation. Such books aim to guide moral, spiritual, and inner growth</p>
+    </div>
+    <div class="card">
+      <a [routerLink]="['/customer/home/comptative']"><h3>Compatative Exam Books</h3></a>
+      <p>Specially designed for exam preparation like UPSC, SSC, and banking. They provide practice questions, strategies, and subject-wise notes</p>
+    </div>
+    <div class="card">
+      <a [routerLink]="['/customer/home/children']"><h3>Children's Books</h3></a>
+      <p>Colorful and engaging books with stories, pictures, and activities. They help kids learn morals, language, and creativity</p>
+    </div>
+    <div class="card" style ="margin-left:360px; margin-right:-370px">
+      <a [routerLink]="['/customer/home/hobbies']"><h3>Hobbies and skill Development Books</h3></a>
+      <p>Books on cooking, art, music, gardening, and other interests. They help readers explore and develop new skills</p>
+    </div>
+  </section>
+ 
+</div>
+

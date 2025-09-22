@@ -1,0 +1,50 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2>Registration Form</h2>
+
+  <!-- Full Name -->
+  <input type="text" formControlName="name" placeholder="Full Name">
+  <div *ngIf="submitted && registerForm.get('name')?.invalid">
+    Full name is required
+  </div>
+
+  <!-- Email -->
+  <input type="email" formControlName="email" placeholder="Email">
+  <div *ngIf="submitted && registerForm.get('email')?.invalid">
+    Valid email is required
+  </div>
+
+  <!-- Password -->
+  <input type="password" formControlName="password" placeholder="Password">
+  <div *ngIf="submitted && registerForm.get('password')?.invalid">
+    Password is required
+  </div>
+
+  <!-- Confirm Password -->
+  <input type="password" formControlName="confirmPassword" placeholder="Confirm Password">
+  <div *ngIf="submitted && registerForm.hasError('mismatch')">
+    Passwords must match
+  </div>
+
+  <!-- Phone -->
+  <input type="text" formControlName="phone" placeholder="Mobile No.">
+  <div *ngIf="submitted && registerForm.get('phone')?.invalid">
+    Valid phone number is required
+  </div>
+
+  <!-- Address -->
+  <input type="text" formControlName="address" placeholder="Address">
+  <div *ngIf="submitted && registerForm.get('address')?.invalid">
+    Address is required
+  </div>
+
+  <!-- Terms -->
+  <label>
+    <input type="checkbox" formControlName="terms"> Accept Terms
+  </label>
+  <div *ngIf="submitted && registerForm.get('terms')?.invalid">
+    You must accept the terms
+  </div>
+
+  <!-- Submit -->
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>

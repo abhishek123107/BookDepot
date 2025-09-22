@@ -1,0 +1,80 @@
+<div class="profile-container" *ngIf="user; else noUser">
+  <div class="profile-card">
+    <h2>My Profile</h2>
+
+    <!-- Profile Picture -->
+   
+
+    <!-- User Info -->
+    <h3><strong>Name:</strong> {{ user.name }}</h3>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Phone:</strong> {{ user.phone }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+
+    <!-- Buttons -->
+    <div class="actions">
+      <button class="btn btn-warning">Edit</button>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- If no user -->
+<ng-template #noUser>
+  <div class="no-user">
+    <p>No user data found. Please login again.</p>
+    <a routerLink="/login" class="btn btn-primary">Go to Login</a>
+  </div>
+</ng-template>
+
+
+<button class="button button-primary" (click)="showOrder()">
+  {{ showForm ? 'Hide' : 'Show' }} My Orders
+</button>
+
+<form *ngIf="showForm">
+    <table>
+    <tr>
+      <th>Sl. No.</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Product Name</th>
+      <th>Author Name</th>
+      <th>Product Amount</th>
+      <th>Date</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Abhishek Thakur</td>
+      <td>Siwan, Bihar</td>
+      <td>Lucent’s General Knowledge</td>
+      <td>Dr. Binay Karna</td>
+      <td>₹350</td>
+      <td>2025-09-09</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Jyoti Kumari</td>
+      <td>Bauliya Pandey, UP</td>
+      <td>Creative Painting for Kids</td>
+      <td>Neetu Sugandh</td>
+      <td>₹299</td>
+      <td>2025-09-08</td>
+      <td class="status-pending">Pending</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Rahul Sharma</td>
+      <td>Patna, Bihar</td>
+      <td>Quantitative Aptitude</td>
+       <td>R.S. Aggarwal</td>
+      <td>₹450</td>
+      <td>2025-09-07</td>
+      <td class="status-cancelled">Cancelled</td>
+    </tr>
+  </table>
+  </form>
+
+

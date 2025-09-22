@@ -1,0 +1,14 @@
+/* src/styles.css */
+
+
+body {
+  background: linear-gradient(135deg, #759db3, #3b3a13);
+  font-family: Arial, sans-serif;
+}
+
+.btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}

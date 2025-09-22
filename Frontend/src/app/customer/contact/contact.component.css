@@ -1,0 +1,88 @@
+/* Container */
+.contact-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.contact-container h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Labels */
+.contact-container label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* Inputs & Textarea */
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+/* Error message */
+.contact-container small {
+  color: #e11d48;
+  font-size: 13px;
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 12px;
+}
+
+/* Button */
+.contact-container button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-container button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.contact-container button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 15px;
+  }
+  .contact-container h2 {
+    font-size: 22px;
+  }
+}
