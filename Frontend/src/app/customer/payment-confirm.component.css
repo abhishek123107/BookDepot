@@ -1,0 +1,22 @@
+.payment-confirm {
+  text-align: center;
+  margin-top: 40px;
+}
+.payment-confirm h2 {
+  color: #4caf50;
+}
+.payment-confirm p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.payment-confirm button {
+  padding: 8px 24px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.payment-confirm button:hover {
+  background: #1565c0;
+}

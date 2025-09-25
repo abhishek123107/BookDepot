@@ -21,6 +21,9 @@ import { LibararyComponent } from './customer/libarary/libarary.component';
 import { ForgatePasswordComponent } from './customer/forgate-password/forgate-password.component';
 import { ResetPasswordComponent } from './customer/forgate-password/reset-password/reset-password.component';
 import { ContactComponent } from './customer/contact/contact.component';
+import { TrackOrderComponent } from './customer/track-order/track-order.component';
+import { EditProfileComponent } from './customer/edit-profile.component';
+import { PaymentComponent } from './customer/payment.component';
 
 
 export const routes: Routes = [
@@ -64,7 +67,10 @@ export const routes: Routes = [
   { path: 'customer/libarary', component: LibararyComponent },
   { path: 'customer/forgatePassword', component: ForgatePasswordComponent },
   { path: 'customer/forgatePassword/reset', component: ResetPasswordComponent },
-
+  { path: 'trackOrder', component:TrackOrderComponent},
+  { path: 'editProfile', component:EditProfileComponent},
+  { path: 'customer/payment-confirm', component:PaymentCinfrmComponent},
+  { path: 'mkPayment', component:PaymentComponent},
   { path: '**', redirectTo: '/customer/home' },
   { path: 'customer/contact', component:ContactComponent }
 ];

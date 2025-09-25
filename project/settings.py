@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+# SSL certificate fix for Gmail SMTP (Windows)
+import ssl
+ssl._create_default_https_context = ssl.create_default_context(cafile="c:/Users/WELCOME/Desktop/myproject/certs/cacert.pem")
 from pathlib import Path
 # settings.py
 from mongoengine import connect, disconnect
@@ -138,13 +141,17 @@ USE_I18N = True
 
 USE_TZ = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your_email@gmail.com'   # apna email
-EMAIL_HOST_PASSWORD = 'your_app_password' # Gmail App Password (normal password nahi chalega)
+# For development, use console backend (prints emails to terminal)
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# For production or real email sending, use Gmail SMTP backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your_gmail@gmail.com'   # Replace with your Gmail address
+# EMAIL_HOST_PASSWORD = 'your_gmail_app_password' # Use Gmail App Password (not your regular password)
 
 
 CORS_ALLOW_ALL_ORIGINS = True

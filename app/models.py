@@ -69,16 +69,18 @@ class Book(me.Document):
 
 
 
+
 class Order(me.Document):
     book = me.DictField()
     customer_name = me.StringField(max_length=200)
-    email = me.EmailField(required=True)   # ⚡ add this line
+    email = me.EmailField(required=True)
     address = me.StringField()
     state = me.StringField(max_length=100)
     district = me.StringField(max_length=100)
     pin = me.StringField(max_length=20)
     landmark = me.StringField(max_length=200, blank=True, null=True)
     phone = me.StringField(max_length=15)
+    status = me.StringField(max_length=20, default="confirmed", choices=["confirmed", "tracking", "cancelled", "delivered"])
     created_at = me.DateTimeField(auto_now_add=True)
 
     def __str__(self):

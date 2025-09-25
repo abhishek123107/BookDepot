@@ -11,11 +11,11 @@ export class PaymentCinfrmComponent {
   constructor(private router: Router) {}
 
   goToOrders() {
-    this.router.navigate(['customer/home/educational/shoping/order']);
+    this.router.navigate(['/trackOrder']);
   }
 
   goToShop() {
-    this.router.navigate(['customer/home/educational/shoping']);
+    this.router.navigate(['customer/home']);
   }
 }
 

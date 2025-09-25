@@ -1,3 +1,18 @@
+# Add POST API to fetch order by ID
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['POST'])
+def get_order_by_id(request):
+    order_id = request.data.get('order_id')
+    if not order_id:
+        return Response({'success': False, 'message': 'order_id required'}, status=400)
+    try:
+        order = Order.objects.get(id=order_id)
+        serializer = OrderSerializer(order)
+        return Response({'success': True, 'order': serializer.data})
+    except Order.DoesNotExist:
+        return Response({'success': False, 'message': 'Order not found'}, status=404)
 
 import email
 import sys
@@ -6,10 +21,35 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from app.models import Customer, LoginForm   
-from app.serializers import CustomerSerializer
+from app.models import Customer, LoginForm, Order   
+from app.serializers import CustomerSerializer, OrderSerializer
 from mongoengine import Document, fields
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+
+# --- Customer Orders API ---
+class CustomerOrdersView(APIView):
+    def post(self, request):
+        customer_email = request.data.get('email')
+        if not customer_email:
+            return Response({'success': False, 'message': 'Email required'}, status=400)
+        orders = Order.objects(email=customer_email)
+        serializer = OrderSerializer(orders, many=True)
+        return Response({'success': True, 'orders': serializer.data})
+
+@api_view(['POST'])
+def update_order_status(request):
+    print('DEBUG update_order_status request.data:', request.data)  # Debug print
+    order_id = request.data.get('order_id')
+    status_val = request.data.get('status')
+    if not order_id or not status_val:
+        return Response({'success': False, 'message': 'order_id and status required'}, status=400)
+    try:
+        order = Order.objects.get(id=order_id)
+        order.status = status_val
+        order.save()
+        return Response({'success': True, 'message': 'Order status updated'})
+    except Order.DoesNotExist:
+        return Response({'success': False, 'message': 'Order not found'}, status=404)
 from rest_framework.response import Response
 from django.core.mail import send_mail
 from .models import Order
@@ -29,6 +69,14 @@ def generate_otp(length=6):
     """Generate a numeric OTP of given length"""
     return ''.join([str(random.randint(0, 9)) for _ in range(length)])
 
+# Dummy /pay/ endpoint for payment integration
+@csrf_exempt
+def pay(request):
+    if request.method == 'POST':
+        # Simulate payment processing
+        return JsonResponse({'status': 'success', 'message': 'Payment processed.'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=400)
+
 class SendOtpView(APIView):
     def post(self, request):
         email = request.data.get('email')
@@ -38,7 +86,17 @@ class SendOtpView(APIView):
         otp = generate_otp()
         OTP_STORE[email] = otp
         print(f"OTP for {email} is {otp}")  # For testing, prints OTP to console
-        # In real app, send OTP via email or SMS here
+
+        # Send OTP via email
+        subject = "Your OTP for BookDepot Password Reset"
+        message = f"Your OTP is: {otp}\nUse this to reset your password."
+        send_mail(
+            subject,
+            message,
+            "noreply@bookdepot.com",
+            [email],
+            fail_silently=False,
+        )
 
         return Response({"success": True, "message": f"OTP sent to {email}"})
 

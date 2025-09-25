@@ -1,0 +1,32 @@
+<div class="track-order-container">
+  <h2>Track Your Order</h2>
+  <div *ngIf="order; else notFound">
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Product:</strong> {{ order.book.title }}</p>
+    <p><strong>Author:</strong> {{ order.book.author }}</p>
+    <p><strong>Amount:</strong> ₹{{ order.book.price }}</p>
+    <p>
+      <strong>Status:</strong>
+      <span
+        class="badge"
+        [ngClass]="{
+          'badge-confirmed': order.status === 'confirmed',
+          'badge-cancelled': order.status === 'cancelled',
+          'badge-pending': order.status === 'pending',
+          'badge-tracking': order.status === 'tracking',
+          'badge-delivered': order.status === 'delivered'
+        }"
+        >{{ order.status | titlecase }}</span
+      >
+    </p>
+    <p>
+      <strong>Placed On:</strong> {{ order.created_at | date : "yyyy-MM-dd" }}
+    </p>
+  </div>
+  <ng-template #notFound>
+    <p>{{ statusMessage }}</p>
+  </ng-template>
+  <button class="btn-back" (click)="router.navigate(['/customer/profile'])">
+    Back to Profile
+  </button>
+</div>

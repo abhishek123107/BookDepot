@@ -7,28 +7,61 @@
 
     <div class="amount">
       <span>Total Amount</span>
-      <strong>₹{{ book?.price || '0.00' }}</strong>
+      <strong>₹{{ book?.price || "0.00" }}</strong>
     </div>
 
     <!-- Payment Options -->
     <div class="section other-methods">
       <label>
-        <input type="radio" name="payment" value="UPI" (change)="onpaymentOptionChange('UPI')" />
+        <input
+          type="radio"
+          name="payment"
+          value="UPI"
+          (change)="onpaymentOptionChange('UPI')"
+        />
         UPI
       </label>
       <div *ngIf="selectedOption === 'UPI'" class="upi-section">
-        <input type="text" placeholder="Enter UPI ID (e.g. name@upi)" [(ngModel)]="upiId" />
+        <input
+          type="text"
+          placeholder="Enter UPI ID (e.g. name@upi)"
+          [(ngModel)]="upiId"
+        />
         <button (click)="payWithUPI()">Pay via UPI</button>
       </div>
     </div>
 
     <div class="section other-methods">
       <label>
-        <input type="radio" name="payment" value="Bank Transfer" (change)="onpaymentOptionChange('Bank Transfer')" />
+        <input
+          type="radio"
+          name="payment"
+          value="Razorpay"
+          (change)="onpaymentOptionChange('Razorpay')"
+        />
+        Razorpay (Recommended)
+      </label>
+      <div *ngIf="selectedOption === 'Razorpay'" class="razorpay-section">
+        <button (click)="payWithRazorpay()">Pay with Razorpay</button>
+      </div>
+    </div>
+
+    <div class="section other-methods">
+      <label>
+        <input
+          type="radio"
+          name="payment"
+          value="Bank Transfer"
+          (change)="onpaymentOptionChange('Bank Transfer')"
+        />
         Bank Transfer (Net Banking)
       </label>
       <div *ngIf="selectedOption === 'Bank Transfer'" class="bank-section">
-        <input type="text" placeholder="Account Number" [(ngModel)]="accountNumber" />
+        <input
+          type="text"
+          placeholder="Account Number"
+          [(ngModel)]="accountNumber"
+        />
         <input type="text" placeholder="IFSC Code" [(ngModel)]="ifscCode" />
         <button (click)="payWithBank()">Pay via Bank Transfer</button>
       </div>
@@ -36,30 +69,45 @@
 
     <div class="section other-methods">
       <label>
-        <input type="radio" name="payment" value="Card" (change)="onpaymentOptionChange('Card')" />
+        <input
+          type="radio"
+          name="payment"
+          value="Card"
+          (change)="onpaymentOptionChange('Card')"
+        />
         Debit/Credit Card
       </label>
       <div *ngIf="selectedOption === 'Card'" class="card-section">
         <input type="text" placeholder="Card Number" [(ngModel)]="cardNumber" />
-        <input type="text" placeholder="Expiry Date (MM/YY)" [(ngModel)]="expiry" />
+        <input
+          type="text"
+          placeholder="Expiry Date (MM/YY)"
+          [(ngModel)]="expiry"
+        />
         <input type="text" placeholder="CVV" [(ngModel)]="cvv" />
         <button (click)="payWithCard()">Pay via Card</button>
       </div>
     </div>
-    
 
     <div class="section other-methods">
-  <label>
-    <input type="radio" name="payment" value="COD" (change)="onpaymentOptionChange('COD')" />
-    Cash on Delivery (COD)
-  </label>
-  <div *ngIf="selectedOption === 'COD'" class="cod-section">
-    <p>You will pay <strong>₹{{ book?.price || '0.00' }}</strong> in cash at the time of delivery.</p>
-    <button (click)="payWithCOD()">Confirm COD Order</button>
-  </div>
-</div>
+      <label>
+        <input
+          type="radio"
+          name="payment"
+          value="COD"
+          (change)="onpaymentOptionChange('COD')"
+        />
+        Cash on Delivery (COD)
+      </label>
+      <div *ngIf="selectedOption === 'COD'" class="cod-section">
+        <p>
+          You will pay <strong>₹{{ book?.price || "0.00" }}</strong> in cash at
+          the time of delivery.
+        </p>
+        <button (click)="payWithCOD()">Confirm COD Order</button>
+      </div>
+    </div>
 
     <p *ngIf="result">{{ result }}</p>
   </div>
 </div>
-

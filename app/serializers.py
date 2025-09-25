@@ -12,16 +12,18 @@ class BookSerializer(serializers.Serializer):
     price = serializers.FloatField()
 
 
+
 class OrderSerializer(serializers.Serializer):
     book = BookSerializer()
     customer_name = serializers.CharField()
-    email = serializers.EmailField()   # ⚡ add this
+    email = serializers.EmailField()
     address = serializers.CharField()
     state = serializers.CharField()
     district = serializers.CharField()
     pin = serializers.CharField()
     landmark = serializers.CharField(required=False, allow_blank=True)
     phone = serializers.CharField()
+    status = serializers.CharField(required=False, default="confirmed")
 
 
     def create(self, validated_data):

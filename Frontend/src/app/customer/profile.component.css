@@ -1,3 +1,85 @@
+/* Order Table Styles */
+.order-table-container {
+  margin: 40px auto 0 auto;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 24px 32px;
+}
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.order-table th,
+.order-table td {
+  padding: 12px 16px;
+  text-align: center;
+}
+.order-table th {
+  background: #f5f6fa;
+  color: #333;
+  font-weight: 600;
+}
+.order-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.order-table tr:hover {
+  background: #eaf6ff;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.badge-confirmed {
+  background: #3498db;
+}
+.badge-cancelled {
+  background: #e74c3c;
+}
+.badge-pending {
+  background: #f1c40f;
+  color: #333;
+}
+.badge-tracking {
+  background: #8e44ad;
+}
+.badge-delivered {
+  background: #27ae60;
+}
+
+/* Action Buttons */
+.btn-action {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  margin: 0 4px;
+  font-size: 0.98em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-track {
+  background: #2980b9;
+  color: #fff;
+}
+.btn-track:hover {
+  background: #1c5d8c;
+}
+.btn-cancel {
+  background: #e74c3c;
+  color: #fff;
+}
+.btn-cancel:hover {
+  background: #b93222;
+}
 /* Profile Container */
 .profile-container {
   display: flex;
@@ -87,7 +169,7 @@
   padding: 50px;
   background-color: #fefefe;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .no-user p {
@@ -109,39 +191,38 @@
 }
 
 form {
-      font-family: Arial, sans-serif;
-      margin-left: 10%;
-      
-      
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 1000px;
-      background-color: antiquewhite;
-    }
-    th, td {
-      border: 1px solid #333;
-      padding: 8px 12px;
-      text-align: left;
-    }
-    th {
-      background: #f4f4f4;
-    }
-    .status-pending {
-      color: orange;
-      font-weight: bold;
-    }
-    .status-completed {
-      color: green;
-      font-weight: bold;
-    }
-    .status-cancelled {
-      color: red;
-      font-weight: bold;
-    }
+  font-family: Arial, sans-serif;
+  margin-left: 10%;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  background-color: antiquewhite;
+}
+th,
+td {
+  border: 1px solid #333;
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background: #f4f4f4;
+}
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+.status-completed {
+  color: green;
+  font-weight: bold;
+}
+.status-cancelled {
+  color: red;
+  font-weight: bold;
+}
 
-    .button {
+.button {
   padding: 10px 20px;
   margin: 20px 10px 20px 10%;
   width: 80%;

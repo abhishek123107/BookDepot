@@ -1,0 +1,11 @@
+<div class="payment-container">
+  <h2>Pay with Razorpay</h2>
+  <div *ngIf="!paymentSuccess">
+    <label>Amount (INR):</label>
+    <input type="number" [(ngModel)]="amount" min="1" />
+    <button (click)="payWithRazorpay()">Pay Now</button>
+  </div>
+  <div *ngIf="paymentSuccess">
+    <p>Payment successful! Payment ID: {{ paymentId }}</p>
+  </div>
+</div>

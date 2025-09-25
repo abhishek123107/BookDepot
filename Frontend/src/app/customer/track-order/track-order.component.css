@@ -1,0 +1,56 @@
+.track-order-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px 40px;
+  font-family: Arial, sans-serif;
+}
+.track-order-container h2 {
+  color: #3498db;
+  margin-bottom: 24px;
+}
+.track-order-container p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.badge-confirmed {
+  background: #3498db;
+}
+.badge-cancelled {
+  background: #e74c3c;
+}
+.badge-pending {
+  background: #f1c40f;
+  color: #333;
+}
+.badge-tracking {
+  background: #8e44ad;
+}
+.badge-delivered {
+  background: #27ae60;
+}
+.btn-back {
+  margin-top: 24px;
+  padding: 8px 24px;
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-back:hover {
+  background: #1c5d8c;
+}
