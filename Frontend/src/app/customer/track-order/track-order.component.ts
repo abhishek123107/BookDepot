@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BookImageService } from '../../services/book-image.service';
 
 @Component({
   selector: 'app-track-order',
@@ -24,7 +25,8 @@ export class TrackOrderComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private bookImage: BookImageService
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,16 @@ export class TrackOrderComponent implements OnInit {
         (res) => {
           if (res.success && res.order) {
             this.order = res.order;
+            // ensure image present for the order's book
+            if (
+              this.order.book &&
+              (!this.order.book.image || this.order.book.image.trim() === '')
+            ) {
+              const img = this.bookImage.getImageForTitle(
+                this.order.book.title
+              );
+              if (img) this.order.book.image = img;
+            }
           } else {
             this.statusMessage = 'Order not found.';
           }

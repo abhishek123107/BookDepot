@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component,  } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AdminDashboardComponent } from './admin/admin-dashboard.component';
 
 
 

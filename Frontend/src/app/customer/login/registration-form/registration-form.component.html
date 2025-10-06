@@ -2,49 +2,63 @@
   <h2>Registration Form</h2>
 
   <!-- Full Name -->
-  <input type="text" formControlName="name" placeholder="Full Name">
+  <input type="text" formControlName="name" placeholder="Full Name" />
   <div *ngIf="submitted && registerForm.get('name')?.invalid">
     Full name is required
   </div>
+  <div *ngIf="serverErrors?.name">
+    <small class="text-danger">{{ serverErrors.name[0] }}</small>
+  </div>
 
   <!-- Email -->
-  <input type="email" formControlName="email" placeholder="Email">
+  <input type="email" formControlName="email" placeholder="Email" />
   <div *ngIf="submitted && registerForm.get('email')?.invalid">
     Valid email is required
   </div>
+  <div *ngIf="serverErrors?.email">
+    <small class="text-danger">{{ serverErrors.email[0] }}</small>
+  </div>
 
   <!-- Password -->
-  <input type="password" formControlName="password" placeholder="Password">
+  <input type="password" formControlName="password" placeholder="Password" />
   <div *ngIf="submitted && registerForm.get('password')?.invalid">
     Password is required
   </div>
 
   <!-- Confirm Password -->
-  <input type="password" formControlName="confirmPassword" placeholder="Confirm Password">
+  <input
+    type="password"
+    formControlName="confirmPassword"
+    placeholder="Confirm Password"
+  />
   <div *ngIf="submitted && registerForm.hasError('mismatch')">
     Passwords must match
   </div>
 
   <!-- Phone -->
-  <input type="text" formControlName="phone" placeholder="Mobile No.">
+  <input type="text" formControlName="phone" placeholder="Mobile No." />
   <div *ngIf="submitted && registerForm.get('phone')?.invalid">
     Valid phone number is required
   </div>
+  <div *ngIf="serverErrors?.phone">
+    <small class="text-danger">{{ serverErrors.phone[0] }}</small>
+  </div>
 
   <!-- Address -->
-  <input type="text" formControlName="address" placeholder="Address">
+  <input type="text" formControlName="address" placeholder="Address" />
   <div *ngIf="submitted && registerForm.get('address')?.invalid">
     Address is required
   </div>
 
   <!-- Terms -->
   <label>
-    <input type="checkbox" formControlName="terms"> Accept Terms
+    <input type="checkbox" formControlName="terms" /> Accept Terms
   </label>
   <div *ngIf="submitted && registerForm.get('terms')?.invalid">
     You must accept the terms
   </div>
 
   <!-- Submit -->
+  <div *ngIf="globalError" class="text-danger">{{ globalError }}</div>
   <button type="submit" [disabled]="registerForm.invalid">Register</button>
 </form>

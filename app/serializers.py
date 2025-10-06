@@ -14,6 +14,8 @@ class BookSerializer(serializers.Serializer):
 
 
 class OrderSerializer(serializers.Serializer):
+    # Include the document id so clients can reference the order when updating
+    id = serializers.CharField(read_only=True)
     book = BookSerializer()
     customer_name = serializers.CharField()
     email = serializers.EmailField()
@@ -60,9 +62,31 @@ class CustomerSerializer(serializers.Serializer):
     customer_id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True, max_length=100)
     email = serializers.EmailField(required=True)
-    password = serializers.CharField(max_length=200)
+    password = serializers.CharField(max_length=200, write_only=True)
     phone = serializers.CharField(required=True)
     address = serializers.CharField(required=True, max_length=200)
+
+    def validate_phone(self, value):
+        # basic validation: phone must be digits and 10-15 chars
+        if not value.isdigit():
+            raise serializers.ValidationError('Phone must contain only digits')
+        if len(value) < 7 or len(value) > 15:
+            raise serializers.ValidationError('Phone must be between 7 and 15 digits')
+        return value
+
+    def validate_name(self, value):
+        # prevent duplicate names (there is a unique index on name in the DB)
+        existing = Customer.objects(name=value).first()
+        if existing:
+            raise serializers.ValidationError('A user with this name already exists')
+        return value
+
+    def validate_email(self, value):
+        # optional: check for existing email
+        existing = Customer.objects(email=value).first()
+        if existing:
+            raise serializers.ValidationError('A user with this email already exists')
+        return value
 
     def create(self, validated_data):   # ✅ अब यह सही जगह है
         validated_data["password"] = make_password(validated_data["password"])

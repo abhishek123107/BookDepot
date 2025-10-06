@@ -24,7 +24,7 @@ import { ContactComponent } from './customer/contact/contact.component';
 import { TrackOrderComponent } from './customer/track-order/track-order.component';
 import { EditProfileComponent } from './customer/edit-profile.component';
 import { PaymentComponent } from './customer/payment.component';
-
+import { AdminDashboardComponent } from './admin/admin-dashboard.component';
 
 export const routes: Routes = [
   { path: 'customer/profile', component: ProfileComponent },
@@ -34,24 +34,45 @@ export const routes: Routes = [
   { path: '', redirectTo: 'customer/home', pathMatch: 'full' },
   { path: 'customer/home', component: HomeComponent },
   { path: 'customer/home/educational', component: EducationalComponent },
-  { path: 'customer/home/educational/shoping', component: ShopingPageComponent },
-  { path: 'customer/home/educational/shoping/order', component: OrderPageComponent },
-  { path: 'customer/home/educational/shoping/order/payment', component: SellingPageComponent },
-  { path: 'customer/home/educational/shoping/order/payment/bank-detail', component: BankDetailComponent },
-  { path: 'customer/home/educational/shoping/order/payment/bank-detail/payment-confirmation', component: PaymentCinfrmComponent },
+  {
+    path: 'customer/home/educational/shoping',
+    component: ShopingPageComponent,
+  },
+  {
+    path: 'customer/home/educational/shoping/order',
+    component: OrderPageComponent,
+  },
+  {
+    path: 'customer/home/educational/shoping/order/payment',
+    component: SellingPageComponent,
+  },
+  {
+    path: 'customer/home/educational/shoping/order/payment/bank-detail',
+    component: BankDetailComponent,
+  },
+  {
+    path: 'customer/home/educational/shoping/order/payment/bank-detail/payment-confirmation',
+    component: PaymentCinfrmComponent,
+  },
 
   { path: 'customer/home/fiction', component: FictionComponent },
   { path: 'customer/home/fictional/shoping', component: ShopingPageComponent },
-  
+
   { path: 'customer/home/non-fiction', component: NonFictionComponent },
-  { path: 'customer/home/non-fictional/shoping', component: ShopingPageComponent },
+  {
+    path: 'customer/home/non-fictional/shoping',
+    component: ShopingPageComponent,
+  },
 
   { path: 'customer/home/children', component: ChildrenComponent },
   { path: 'customer/home/children/shoping', component: ShopingPageComponent },
 
   { path: 'customer/home/religious', component: ReligiousComponent },
   { path: 'customer/home/religious/shoping', component: ShopingPageComponent },
-  { path: 'customer/home/religious/shoping/order', component: OrderPageComponent },
+  {
+    path: 'customer/home/religious/shoping/order',
+    component: OrderPageComponent,
+  },
 
   { path: 'customer/home/hobbies', component: HobbiesComponent },
   { path: 'customer/home/hobbies/shoping', component: ShopingPageComponent },
@@ -67,10 +88,11 @@ export const routes: Routes = [
   { path: 'customer/libarary', component: LibararyComponent },
   { path: 'customer/forgatePassword', component: ForgatePasswordComponent },
   { path: 'customer/forgatePassword/reset', component: ResetPasswordComponent },
-  { path: 'trackOrder', component:TrackOrderComponent},
-  { path: 'editProfile', component:EditProfileComponent},
-  { path: 'customer/payment-confirm', component:PaymentCinfrmComponent},
-  { path: 'mkPayment', component:PaymentComponent},
-  { path: '**', redirectTo: '/customer/home' },
-  { path: 'customer/contact', component:ContactComponent }
+  { path: 'trackOrder', component: TrackOrderComponent },
+  { path: 'editProfile', component: EditProfileComponent },
+  { path: 'customer/payment-confirm', component: PaymentCinfrmComponent },
+  { path: 'mkPayment', component: PaymentComponent },
+  //{ path: '**', redirectTo: '/customer/home' },
+  { path: 'customer/contact', component: ContactComponent },
+  { path: 'admin', component: AdminDashboardComponent },
 ];

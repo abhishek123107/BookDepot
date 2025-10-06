@@ -19,6 +19,8 @@ import sys
 import random
 from django.http import JsonResponse
 from rest_framework.views import APIView
+from rest_framework import serializers as drf_serializers
+from mongoengine.errors import NotUniqueError
 from rest_framework.response import Response
 from rest_framework import status
 from app.models import Customer, LoginForm, Order   
@@ -48,6 +50,24 @@ def update_order_status(request):
         order.status = status_val
         order.save()
         return Response({'success': True, 'message': 'Order status updated'})
+    except Order.DoesNotExist:
+        return Response({'success': False, 'message': 'Order not found'}, status=404)
+
+
+@api_view(['POST'])
+def update_order_address(request):
+    """Update the address for an order. Expects JSON: { order_id, address }"""
+    print('DEBUG update_order_address request.data:', request.data)
+    order_id = request.data.get('order_id')
+    new_address = request.data.get('address')
+    if not order_id or new_address is None:
+        return Response({'success': False, 'message': 'order_id and address required'}, status=400)
+
+    try:
+        order = Order.objects.get(id=order_id)
+        order.address = new_address
+        order.save()
+        return Response({'success': True, 'message': 'Order address updated'})
     except Order.DoesNotExist:
         return Response({'success': False, 'message': 'Order not found'}, status=404)
 from rest_framework.response import Response
@@ -115,6 +135,7 @@ class VerifyOtpView(APIView):
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 PASSWORD_STORE = {}  # demo password store
 
@@ -138,6 +159,18 @@ class CustomerListCreateAPIView(APIView):
         customers = Customer.objects.all()   # ✅ FIXED queryset
         serializer = CustomerSerializer(customers, many=True)
         return Response(serializer.data)
+
+
+class AllOrdersAPIView(APIView):
+    def get(self, request):
+        try:
+            orders = Order.objects.order_by('-created_at')
+        except Exception as e:
+            print('ERROR fetching orders:', str(e))
+            return Response({'success': False, 'message': 'Error fetching orders'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        serializer = OrderSerializer(orders, many=True)
+        return Response({'success': True, 'orders': serializer.data})
 
     def post(self, request):
         serializer = CustomerSerializer(data=request.data)
@@ -180,19 +213,43 @@ class CustomerDeleteAPIView(APIView):
 
 class RegisterCustomer(APIView):
     def post(self, request):
+        print('DEBUG RegisterCustomer request.data:', request.data)
         serializer = CustomerSerializer(data=request.data)
         if serializer.is_valid():
-            customer = serializer.save()
+            try:
+                customer = serializer.save()
+            except NotUniqueError as e:
+                # Duplicate unique key in DB (e.g., name or email)
+                print('DUPLICATE KEY ERROR saving customer:', str(e))
+                # Try to extract key info from message
+                msg = 'A record with the same unique field already exists.'
+                try:
+                    # e.args may contain detailed info
+                    msg = str(e)
+                except Exception:
+                    pass
+                return Response({"success": False, "message": msg}, status=status.HTTP_400_BAD_REQUEST)
+            except drf_serializers.ValidationError as e:
+                # Raised by serializer.create when we re-raise validation errors
+                print('SERIALIZER ValidationError saving customer:', e.detail if hasattr(e, 'detail') else str(e))
+                return Response({"success": False, "errors": e.detail if hasattr(e, 'detail') else str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            except Exception as e:
+                print('ERROR saving customer:', str(e))
+                return Response({"success": False, "message": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
             # Return customer data (exclude password automatically because it's write_only in serializer)
             return Response(
                 {
+                    "success": True,
                     "message": "Customer registered successfully",
                     "customer": CustomerSerializer(customer).data
                 },
                 status=status.HTTP_201_CREATED
             )
-       
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        # Validation failed — print errors to server log and return helpful payload
+        print('DEBUG RegisterCustomer serializer.errors:', serializer.errors)
+        return Response({"success": False, "errors": serializer.errors, "data_received": request.data}, status=status.HTTP_400_BAD_REQUEST)
 
 # views.py
 
@@ -213,6 +270,9 @@ def login_api(request):
 
                     # ✅ Check hashed password
                     if check_password(password, user.password):
+                        # Determine role (demo): treat a specific email as admin
+                        admin_email = "admin@bookdepot.com"
+                        role = 'admin' if user.email == admin_email else 'user'
                         return JsonResponse({
                             "status": "success",
                             "message": "Login successful",
@@ -221,7 +281,8 @@ def login_api(request):
                                 "name": user.name,
                                 "email": user.email,
                                 "phone": user.phone,
-                                "address": user.address
+                                "address": user.address,
+                                "role": role
                             }
                         })
                     else:
