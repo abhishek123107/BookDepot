@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta _ngcontent-ng-c2789444242="" charset="UTF-8"><style ng-app-id="ng">
+
+*[_ngcontent-ng-c3227407099] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body[_ngcontent-ng-c3227407099] {
+  font-family: "Segoe UI", sans-serif;
+  background:
+    linear-gradient(
+      135deg,
+      #759db3,
+      #3b3a13);
+  position: static;
+  line-height: 1.6;
+}
+.navbar[_ngcontent-ng-c3227407099] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12, 3, 19, 0.05);
+  padding: 20px 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1100px;
+}
+a[_ngcontent-ng-c3227407099]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+.logo[_ngcontent-ng-c3227407099] {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.nav-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099] {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer[_ngcontent-ng-c3227407099] {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  margin-top: 40px;
+  border-radius: 12px;
+}
+.footer[_ngcontent-ng-c3227407099]   p[_ngcontent-ng-c3227407099] {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.footer-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099] {
+  margin: 0 10px;
+  color: #aaa;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099]:hover {
+  text-decoration: underline;
+}
+.fancy-button[_ngcontent-ng-c3227407099] {
+  background:
+    linear-gradient(
+      135deg,
+      #6e8efb,
+      #a777e3);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.4);
+  transition: all 0.3s ease;
+}
+.fancy-button[_ngcontent-ng-c3227407099]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+.fancy-button[_ngcontent-ng-c3227407099]:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+}
+/*# sourceMappingURL=app.component.css.map */</style><style ng-app-id="ng">
+
+.admin-dashboard[_ngcontent-ng-c1915493177] {
+  font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+  color: #2c3e50;
+}
+.tabs[_ngcontent-ng-c1915493177] {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+.tabs[_ngcontent-ng-c1915493177]   li[_ngcontent-ng-c1915493177] {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s ease;
+  color: #555;
+}
+.tabs[_ngcontent-ng-c1915493177]   li[_ngcontent-ng-c1915493177]:hover {
+  background: #f3f4f6;
+  color: #111;
+}
+.tabs[_ngcontent-ng-c1915493177]   li.active[_ngcontent-ng-c1915493177] {
+  background: #2563eb;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+.card[_ngcontent-ng-c1915493177] {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.card-content[_ngcontent-ng-c1915493177] {
+  border-bottom: 1px solid #f0f0f0;
+}
+.btn[_ngcontent-ng-c1915493177] {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-primary[_ngcontent-ng-c1915493177] {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+}
+.btn-primary[_ngcontent-ng-c1915493177]:hover {
+  background: #1e40af;
+}
+.btn-outline[_ngcontent-ng-c1915493177] {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  background: transparent;
+}
+.btn-outline[_ngcontent-ng-c1915493177]:hover {
+  background: #2563eb;
+  color: #fff;
+}
+.btn-danger[_ngcontent-ng-c1915493177] {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+.btn-danger[_ngcontent-ng-c1915493177]:hover {
+  background: #b91c1c;
+}
+.btn-sm[_ngcontent-ng-c1915493177] {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.table[_ngcontent-ng-c1915493177] {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.table[_ngcontent-ng-c1915493177]   th[_ngcontent-ng-c1915493177] {
+  background: #2563eb;
+  color: #fff;
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+}
+.table[_ngcontent-ng-c1915493177]   td[_ngcontent-ng-c1915493177] {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: #333;
+}
+.table[_ngcontent-ng-c1915493177]   tr[_ngcontent-ng-c1915493177]:hover   td[_ngcontent-ng-c1915493177] {
+  background: #f9fafb;
+}
+/*# sourceMappingURL=admin-dashboard.component.css.map */</style></head><body><!--nghm-->…
+  <title>Folder</title>
+  <base href="/BookDepot/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css">
+
+  <filterbooks></filterbooks>
+  <app-educational></app-educational>
+  <app-root _nghost-ng-c3227407099="" ng-version="18.2.13" ngh="1" ng-server-context="ssg"><div _ngcontent-ng-c3227407099="" class="body"><header _ngcontent-ng-c3227407099="" class="navbar"><div _ngcontent-ng-c3227407099="" class="logo"><img _ngcontent-ng-c3227407099="" src="Image/logo.jpg" alt="Depot logo" style="height: 40px; width: 40px; border-radius: 50%;"> Book Depot
+</div><nav _ngcontent-ng-c3227407099="" class="nav-links"><a _ngcontent-ng-c3227407099="" routerlink="customer/login" ng-reflect-router-link="customer/login" href="/BookDepot/customer/login"><button _ngcontent-ng-c3227407099="" class="fancy-button">SignUp/Login</button></a><a _ngcontent-ng-c3227407099="" routerlink="customer/home" routerlinkactive="active" ng-reflect-router-link="customer/home" href="/BookDepot/customer/home">Home</a><a _ngcontent-ng-c3227407099="" routerlink="customer/about" routerlinkactive="active" ng-reflect-router-link="customer/about" href="/BookDepot/customer/about">About</a><a _ngcontent-ng-c3227407099="" routerlink="customer/service" routerlinkactive="active" ng-reflect-router-link="customer/service" href="/BookDepot/customer/service">Services</a><a _ngcontent-ng-c3227407099="" routerlink="customer/profile" routerlinkactive="active" ng-reflect-router-link="customer/profile" href="/BookDepot/customer/profile">Profile</a></nav></header><router-outlet _ngcontent-ng-c3227407099=""></router-outlet><app-admin-dashboard _nghost-ng-c1915493177="" ngh="0"><div _ngcontent-ng-c1915493177="" class="admin-dashboard p-6 bg-gray-50 min-h-screen"><h1 _ngcontent-ng-c1915493177="" class="text-2xl font-bold mb-6">📚 Admin Dashboard</h1><ul _ngcontent-ng-c1915493177="" class="tabs mb-4 flex gap-4"><li _ngcontent-ng-c1915493177="" class="cursor-pointer active"> Books </li><li _ngcontent-ng-c1915493177="" class="cursor-pointer"> Orders </li><li _ngcontent-ng-c1915493177="" class="cursor-pointer"> Users </li></ul><div _ngcontent-ng-c1915493177=""><div _ngcontent-ng-c1915493177="" class="card mb-6"><div _ngcontent-ng-c1915493177="" class="card-content flex flex-col p-4"><h2 _ngcontent-ng-c1915493177="" class="text-xl font-semibold mb-2">Add New Book</h2><form _ngcontent-ng-c1915493177="" novalidate="" class="grid gap-2 md:grid-cols-2 ng-untouched ng-pristine ng-valid"><input _ngcontent-ng-c1915493177="" type="text" placeholder="Book Title" name="title" required="" class="p-2 border ng-untouched ng-pristine ng-valid" ng-reflect-required="" ng-reflect-name="title" ng-reflect-model=""><input _ngcontent-ng-c1915493177="" type="text" placeholder="Author" name="author" required="" class="p-2 border ng-untouched ng-pristine ng-valid" ng-reflect-required="" ng-reflect-name="author" ng-reflect-model=""><input _ngcontent-ng-c1915493177="" type="number" placeholder="Price" name="price" required="" class="p-2 border ng-untouched ng-pristine ng-valid" ng-reflect-required="" ng-reflect-name="price" ng-reflect-model="0"><input _ngcontent-ng-c1915493177="" type="text" placeholder="Category" name="category" required="" class="p-2 border ng-untouched ng-pristine ng-valid" ng-reflect-required="" ng-reflect-name="category" ng-reflect-model=""><input _ngcontent-ng-c1915493177="" type="text" placeholder="Image URL" name="image" class="p-2 border ng-untouched ng-pristine ng-valid" ng-reflect-name="image" ng-reflect-model=""><button _ngcontent-ng-c1915493177="" type="submit" class="btn btn-primary col-span-2 mt-2"> ＋ Add Book </button></form></div></div><table _ngcontent-ng-c1915493177="" class="table w-full border"><thead _ngcontent-ng-c1915493177=""><tr _ngcontent-ng-c1915493177=""><th _ngcontent-ng-c1915493177="">ID</th><th _ngcontent-ng-c1915493177="">Title</th><th _ngcontent-ng-c1915493177="">Author</th><th _ngcontent-ng-c1915493177="">Price</th><th _ngcontent-ng-c1915493177="">Category</th><th _ngcontent-ng-c1915493177="">Image</th></tr></thead><tbody _ngcontent-ng-c1915493177=""><tr _ngcontent-ng-c1915493177=""><td _ngcontent-ng-c1915493177="">1</td><td _ngcontent-ng-c1915493177="">React Basics</td><td _ngcontent-ng-c1915493177="">Dan Abramov</td><td _ngcontent-ng-c1915493177="">₹499</td><td _ngcontent-ng-c1915493177="">Programming</td><td _ngcontent-ng-c1915493177=""><img _ngcontent-ng-c1915493177="" alt="Book Image" width="60" src="https://via.placeholder.com/100"></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--></tbody></table></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": null
+}--></div><router-outlet _ngcontent-ng-c1915493177=""></router-outlet><!--container--></app-admin-dashboard><!--container--><footer _ngcontent-ng-c3227407099="" class="footer"><p _ngcontent-ng-c3227407099=""> © 2025 Book Depot.- Your Knowledge Hub. Designed with modern touch.Call Us: +91 62024555773 </p><div _ngcontent-ng-c3227407099="" class="footer-links"><a _ngcontent-ng-c3227407099="" href="#">About Us</a><a _ngcontent-ng-c3227407099="" href="#">Privacy Policy</a><a _ngcontent-ng-c3227407099="" href="#">Terms of Service</a><a _ngcontent-ng-c3227407099="" routerlink="/admin" ng-reflect-router-link="/admin" href="/BookDepot/admin">AdminPage</a><a _ngcontent-ng-c3227407099="" routerlink="customer/contact" routerlinkactive="active" ng-reflect-router-link="customer/contact" href="/BookDepot/customer/contact">Contact</a></div></footer></div></app-root>
+  <router-outlet></router-outlet>
+  <app-profile></app-profile>
+  <app-order-page></app-order-page>
+  <app-selling-page></app-selling-page>
+  <app-shoping-page></app-shoping-page>
+  <app-registration-form></app-registration-form>
+  <app-comptative></app-comptative>
+  <app-about></app-about>
+  <app-libarary></app-libarary>
+  <app-forgate-password></app-forgate-password>
+  <app-bank-detail></app-bank-detail>
+  <app-payment-cinfrm></app-payment-cinfrm>
+  <app-reset-password></app-reset-password>
+  <app-contact></app-contact>
+  <app-edit-profile></app-edit-profile>
+  <app-payment></app-payment>
+  <app-payment-cinfrm></app-payment-cinfrm>
+  <app-admin-dashboard></app-admin-dashboard>
+<script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"10":"t22","11":"t24","12":"t25","13":"t26"},"c":{"10":[{"i":"t22","r":1,"t":{"30":"t23"},"c":{"30":[{"i":"t23","r":1}]}}],"11":[],"12":[],"13":[],"14":[]}},{"c":{"17":[{"i":"c1915493177","r":1}]}}]}</script></body></html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta _ngcontent-ng-c2789444242="" charset="UTF-8"><style ng-app-id="ng">
+
+*[_ngcontent-ng-c3227407099] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body[_ngcontent-ng-c3227407099] {
+  font-family: "Segoe UI", sans-serif;
+  background:
+    linear-gradient(
+      135deg,
+      #759db3,
+      #3b3a13);
+  position: static;
+  line-height: 1.6;
+}
+.navbar[_ngcontent-ng-c3227407099] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12, 3, 19, 0.05);
+  padding: 20px 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1100px;
+}
+a[_ngcontent-ng-c3227407099]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+.logo[_ngcontent-ng-c3227407099] {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.nav-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099] {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer[_ngcontent-ng-c3227407099] {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  margin-top: 40px;
+  border-radius: 12px;
+}
+.footer[_ngcontent-ng-c3227407099]   p[_ngcontent-ng-c3227407099] {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.footer-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099] {
+  margin: 0 10px;
+  color: #aaa;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099]:hover {
+  text-decoration: underline;
+}
+.fancy-button[_ngcontent-ng-c3227407099] {
+  background:
+    linear-gradient(
+      135deg,
+      #6e8efb,
+      #a777e3);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.4);
+  transition: all 0.3s ease;
+}
+.fancy-button[_ngcontent-ng-c3227407099]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+.fancy-button[_ngcontent-ng-c3227407099]:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+}
+/*# sourceMappingURL=app.component.css.map */</style><style ng-app-id="ng">
+
+*[_ngcontent-ng-c3290286239] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.body[_ngcontent-ng-c3290286239] {
+  background: #f9f9f9;
+  color: #333;
+}
+header[_ngcontent-ng-c3290286239] {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+header[_ngcontent-ng-c3290286239]   h1[_ngcontent-ng-c3290286239] {
+  margin-bottom: 0.3rem;
+}
+nav[_ngcontent-ng-c3290286239] {
+  background: #34495e;
+  padding: 0.5rem;
+}
+h2[_ngcontent-ng-c3290286239] {
+  color: rgb(115, 4, 15);
+  background-color: cadetblue;
+  margin-top: 20px;
+}
+nav[_ngcontent-ng-c3290286239]   a[_ngcontent-ng-c3290286239] {
+  color: #fff;
+  text-decoration: none;
+}
+nav[_ngcontent-ng-c3290286239]   a[_ngcontent-ng-c3290286239]:hover {
+  text-decoration: none;
+}
+.container[_ngcontent-ng-c3290286239] {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+}
+.search-bar[_ngcontent-ng-c3290286239] {
+  margin-bottom: 1rem;
+}
+input[type=text][_ngcontent-ng-c3290286239] {
+  padding: 0.5rem;
+  margin: 0.3rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+select[_ngcontent-ng-c3290286239] {
+  padding: 0.5rem;
+  margin: 0.3rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+button[_ngcontent-ng-c3290286239] {
+  padding: 0.5rem 1rem;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button[_ngcontent-ng-c3290286239]:hover {
+  background: #1a252f;
+}
+.table-container[_ngcontent-ng-c3290286239] {
+  width: 100%;
+}
+#bookTable[_ngcontent-ng-c3290286239], 
+.table-scroll[_ngcontent-ng-c3290286239]   table[_ngcontent-ng-c3290286239] {
+  width: 100%;
+  border-collapse: collapse;
+}
+th[_ngcontent-ng-c3290286239], 
+td[_ngcontent-ng-c3290286239] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+.table-scroll[_ngcontent-ng-c3290286239] {
+  height: 200px;
+  overflow: auto;
+}
+.table-scroll[_ngcontent-ng-c3290286239] {
+  table-layout: fixed;
+}
+tr[_ngcontent-ng-c3290286239]:nth-child(even) {
+  background: #f2f2f2;
+}
+footer[_ngcontent-ng-c3290286239] {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.dropdown[_ngcontent-ng-c3290286239] {
+  position: relative;
+  display: block;
+  margin-left: 0px;
+}
+.dropbtn[_ngcontent-ng-c3290286239] {
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: -20px;
+}
+.dropbtn[_ngcontent-ng-c3290286239]:hover {
+  background-color: #044c8f;
+}
+.dropdown-content[_ngcontent-ng-c3290286239] {
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 5px;
+  margin-left: -1px;
+  overflow: auto;
+}
+.dropdown-content[_ngcontent-ng-c3290286239]   a[_ngcontent-ng-c3290286239] {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content[_ngcontent-ng-c3290286239]   a[_ngcontent-ng-c3290286239]:hover {
+  background-color: #f1f1f1;
+}
+.dropdown-child-content[_ngcontent-ng-c3290286239] {
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 5px;
+  margin-left: 150px;
+  overflow: hidden;
+}
+.dropdown-child-content[_ngcontent-ng-c3290286239]   a[_ngcontent-ng-c3290286239] {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-child-content[_ngcontent-ng-c3290286239]   a[_ngcontent-ng-c3290286239]:hover {
+  background-color: #f1f1f1;
+}
+.table-container[_ngcontent-ng-c3290286239] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.table-scroll[_ngcontent-ng-c3290286239]   th[_ngcontent-ng-c3290286239], 
+.table-scroll[_ngcontent-ng-c3290286239]   td[_ngcontent-ng-c3290286239] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+/*# sourceMappingURL=libarary.component.css.map */</style></head><body><!--nghm-->…
+  <title>Folder</title>
+  <base href="/BookDepot/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css">
+
+  <filterbooks></filterbooks>
+  <app-educational></app-educational>
+  <app-root _nghost-ng-c3227407099="" ng-version="18.2.13" ngh="1" ng-server-context="ssg"><div _ngcontent-ng-c3227407099="" class="body"><header _ngcontent-ng-c3227407099="" class="navbar"><div _ngcontent-ng-c3227407099="" class="logo"><img _ngcontent-ng-c3227407099="" src="Image/logo.jpg" alt="Depot logo" style="height: 40px; width: 40px; border-radius: 50%;"> Book Depot
+</div><nav _ngcontent-ng-c3227407099="" class="nav-links"><a _ngcontent-ng-c3227407099="" routerlink="customer/login" ng-reflect-router-link="customer/login" href="/BookDepot/customer/login"><button _ngcontent-ng-c3227407099="" class="fancy-button">SignUp/Login</button></a><a _ngcontent-ng-c3227407099="" routerlink="customer/home" routerlinkactive="active" ng-reflect-router-link="customer/home" href="/BookDepot/customer/home">Home</a><a _ngcontent-ng-c3227407099="" routerlink="customer/about" routerlinkactive="active" ng-reflect-router-link="customer/about" href="/BookDepot/customer/about">About</a><a _ngcontent-ng-c3227407099="" routerlink="customer/service" routerlinkactive="active" ng-reflect-router-link="customer/service" href="/BookDepot/customer/service">Services</a><a _ngcontent-ng-c3227407099="" routerlink="customer/profile" routerlinkactive="active" ng-reflect-router-link="customer/profile" href="/BookDepot/customer/profile">Profile</a></nav></header><router-outlet _ngcontent-ng-c3227407099=""></router-outlet><app-libarary _nghost-ng-c3290286239="" ngh="0"><div _ngcontent-ng-c3290286239="" class="body"><header _ngcontent-ng-c3290286239=""><h1 _ngcontent-ng-c3290286239="">Library Management System</h1><p _ngcontent-ng-c3290286239="">Manage your books efficiently</p></header><nav _ngcontent-ng-c3290286239=""><div _ngcontent-ng-c3290286239="" class="dropdown"><button _ngcontent-ng-c3290286239="" class="dropbtn">  ☰  </button><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div></nav><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div _ngcontent-ng-c3290286239="" class="container"><div _ngcontent-ng-c3290286239="" class="search-bar"><input _ngcontent-ng-c3290286239="" type="text" id="searchInput" placeholder="Search books ..." ng-reflect-model="" value="" class="ng-untouched ng-pristine ng-valid"></div><h2 _ngcontent-ng-c3290286239="" id="books">Academic/Educational Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table></div><div _ngcontent-ng-c3290286239="" class="table-container"><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="books">Literature &amp; fiction Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="books">Non-Fiction Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="books">Religious &amp; Spiritual Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="books">Compatative Exam Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="books">Children's Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="books">Hobbies and skill Development Books</h2><div _ngcontent-ng-c3290286239="" class="table-container"><table _ngcontent-ng-c3290286239="" id="bookTable"><thead _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><th _ngcontent-ng-c3290286239="">Book-Name</th><th _ngcontent-ng-c3290286239="">Author</th><th _ngcontent-ng-c3290286239="">View &amp; Read</th></tr></thead></table><div _ngcontent-ng-c3290286239="" class="table-scroll"><table _ngcontent-ng-c3290286239=""><tbody _ngcontent-ng-c3290286239=""><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><tr _ngcontent-ng-c3290286239=""><td _ngcontent-ng-c3290286239="">Angular Basics</td><td _ngcontent-ng-c3290286239="">John Doe</td><td _ngcontent-ng-c3290286239=""><a _ngcontent-ng-c3290286239="" target="_blank" href="/Angular.pdf">View PDF</a><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--></td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table></div></div><h2 _ngcontent-ng-c3290286239="" id="add-book" style="margin-top: 2rem;">Add New Book</h2><form _ngcontent-ng-c3290286239="" novalidate="" id="bookForm" class="ng-untouched ng-pristine ng-valid"><input _ngcontent-ng-c3290286239="" type="text" id="title" placeholder="Book Title" required=""><input _ngcontent-ng-c3290286239="" type="text" id="author" placeholder="Author" required=""><select _ngcontent-ng-c3290286239="" id="category" required=""><option _ngcontent-ng-c3290286239="">Select Category</option><option _ngcontent-ng-c3290286239="">Academic/Educational</option><option _ngcontent-ng-c3290286239="">Literature &amp; Fiction</option><option _ngcontent-ng-c3290286239="">Non-Fiction</option><option _ngcontent-ng-c3290286239="">Fiction</option><option _ngcontent-ng-c3290286239="">Religious &amp; Spiritual</option><option _ngcontent-ng-c3290286239="">Childrens</option><option _ngcontent-ng-c3290286239="">Hobbies &amp; Skill Development</option><!--bindings={
+  "ng-reflect-ng-for-of": "Select Category,Academic/Educa"
+}--></select><button _ngcontent-ng-c3290286239="" type="submit">Add Book</button></form></div><footer _ngcontent-ng-c3290286239=""><p _ngcontent-ng-c3290286239="">© 2025 Library Management System</p></footer></div></app-libarary><!--container--><footer _ngcontent-ng-c3227407099="" class="footer"><p _ngcontent-ng-c3227407099=""> © 2025 Book Depot.- Your Knowledge Hub. Designed with modern touch.Call Us: +91 62024555773 </p><div _ngcontent-ng-c3227407099="" class="footer-links"><a _ngcontent-ng-c3227407099="" href="#">About Us</a><a _ngcontent-ng-c3227407099="" href="#">Privacy Policy</a><a _ngcontent-ng-c3227407099="" href="#">Terms of Service</a><a _ngcontent-ng-c3227407099="" routerlink="/admin" ng-reflect-router-link="/admin" href="/BookDepot/admin">AdminPage</a><a _ngcontent-ng-c3227407099="" routerlink="customer/contact" routerlinkactive="active" ng-reflect-router-link="customer/contact" href="/BookDepot/customer/contact">Contact</a></div></footer></div></app-root>
+  <router-outlet></router-outlet>
+  <app-profile></app-profile>
+  <app-order-page></app-order-page>
+  <app-selling-page></app-selling-page>
+  <app-shoping-page></app-shoping-page>
+  <app-registration-form></app-registration-form>
+  <app-comptative></app-comptative>
+  <app-about></app-about>
+  <app-libarary></app-libarary>
+  <app-forgate-password></app-forgate-password>
+  <app-bank-detail></app-bank-detail>
+  <app-payment-cinfrm></app-payment-cinfrm>
+  <app-reset-password></app-reset-password>
+  <app-contact></app-contact>
+  <app-edit-profile></app-edit-profile>
+  <app-payment></app-payment>
+  <app-payment-cinfrm></app-payment-cinfrm>
+  <app-admin-dashboard></app-admin-dashboard>
+<script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"10":"t4","11":"t5","31":"t6","48":"t9","65":"t12","82":"t15","99":"t18","116":"t21","133":"t24","141":"t27"},"c":{"10":[],"11":[],"31":[{"i":"t6","r":1,"t":{"6":"t7","7":"t8"},"c":{"6":[{"i":"t7","r":2,"e":{"0":1}}],"7":[]},"x":9}],"48":[{"i":"t9","r":1,"t":{"6":"t10","7":"t11"},"c":{"6":[{"i":"t10","r":2,"e":{"0":1}}],"7":[]},"x":9}],"65":[{"i":"t12","r":1,"t":{"6":"t13","7":"t14"},"c":{"6":[{"i":"t13","r":2,"e":{"0":1}}],"7":[]},"x":9}],"82":[{"i":"t15","r":1,"t":{"6":"t16","7":"t17"},"c":{"6":[{"i":"t16","r":2,"e":{"0":1}}],"7":[]},"x":9}],"99":[{"i":"t18","r":1,"t":{"6":"t19","7":"t20"},"c":{"6":[{"i":"t19","r":2,"e":{"0":1}}],"7":[]},"x":9}],"116":[{"i":"t21","r":1,"t":{"6":"t22","7":"t23"},"c":{"6":[{"i":"t22","r":2,"e":{"0":1}}],"7":[]},"x":9}],"133":[{"i":"t24","r":1,"t":{"6":"t25","7":"t26"},"c":{"6":[{"i":"t25","r":2,"e":{"0":1}}],"7":[]},"x":9}],"141":[{"i":"t27","r":1,"x":8}]}},{"c":{"17":[{"i":"c3290286239","r":1}]}}]}</script></body></html>

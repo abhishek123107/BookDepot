@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta _ngcontent-ng-c2789444242="" charset="UTF-8"><style ng-app-id="ng">
+
+*[_ngcontent-ng-c3227407099] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body[_ngcontent-ng-c3227407099] {
+  font-family: "Segoe UI", sans-serif;
+  background:
+    linear-gradient(
+      135deg,
+      #759db3,
+      #3b3a13);
+  position: static;
+  line-height: 1.6;
+}
+.navbar[_ngcontent-ng-c3227407099] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12, 3, 19, 0.05);
+  padding: 20px 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1100px;
+}
+a[_ngcontent-ng-c3227407099]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+.logo[_ngcontent-ng-c3227407099] {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.nav-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099] {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer[_ngcontent-ng-c3227407099] {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  margin-top: 40px;
+  border-radius: 12px;
+}
+.footer[_ngcontent-ng-c3227407099]   p[_ngcontent-ng-c3227407099] {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.footer-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099] {
+  margin: 0 10px;
+  color: #aaa;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-links[_ngcontent-ng-c3227407099]   a[_ngcontent-ng-c3227407099]:hover {
+  text-decoration: underline;
+}
+.fancy-button[_ngcontent-ng-c3227407099] {
+  background:
+    linear-gradient(
+      135deg,
+      #6e8efb,
+      #a777e3);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(110, 142, 251, 0.4);
+  transition: all 0.3s ease;
+}
+.fancy-button[_ngcontent-ng-c3227407099]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(110, 142, 251, 0.5);
+}
+.fancy-button[_ngcontent-ng-c3227407099]:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+}
+/*# sourceMappingURL=app.component.css.map */</style><style ng-app-id="ng">
+
+.order-table-container[_ngcontent-ng-c1847121891] {
+  margin: 40px auto 0 auto;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 24px 32px;
+}
+.order-table[_ngcontent-ng-c1847121891] {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.order-table[_ngcontent-ng-c1847121891]   th[_ngcontent-ng-c1847121891], 
+.order-table[_ngcontent-ng-c1847121891]   td[_ngcontent-ng-c1847121891] {
+  padding: 12px 16px;
+  text-align: center;
+}
+.order-table[_ngcontent-ng-c1847121891]   th[_ngcontent-ng-c1847121891] {
+  background: #f5f6fa;
+  color: #333;
+  font-weight: 600;
+}
+.order-table[_ngcontent-ng-c1847121891]   tr[_ngcontent-ng-c1847121891]:nth-child(even) {
+  background: #f9f9f9;
+}
+.order-table[_ngcontent-ng-c1847121891]   tr[_ngcontent-ng-c1847121891]:hover {
+  background: #eaf6ff;
+}
+.badge[_ngcontent-ng-c1847121891] {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.badge-confirmed[_ngcontent-ng-c1847121891] {
+  background: #3498db;
+}
+.badge-cancelled[_ngcontent-ng-c1847121891] {
+  background: #e74c3c;
+}
+.badge-pending[_ngcontent-ng-c1847121891] {
+  background: #f1c40f;
+  color: #333;
+}
+.badge-tracking[_ngcontent-ng-c1847121891] {
+  background: #8e44ad;
+}
+.badge-delivered[_ngcontent-ng-c1847121891] {
+  background: #27ae60;
+}
+.btn-action[_ngcontent-ng-c1847121891] {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  margin: 0 4px;
+  font-size: 0.98em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-track[_ngcontent-ng-c1847121891] {
+  background: #2980b9;
+  color: #fff;
+}
+.btn-track[_ngcontent-ng-c1847121891]:hover {
+  background: #1c5d8c;
+}
+.btn-cancel[_ngcontent-ng-c1847121891] {
+  background: #e74c3c;
+  color: #fff;
+}
+.btn-cancel[_ngcontent-ng-c1847121891]:hover {
+  background: #b93222;
+}
+.profile-container[_ngcontent-ng-c1847121891] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: none;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.profile-card[_ngcontent-ng-c1847121891] {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+.profile-pic[_ngcontent-ng-c1847121891] {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  border: 3px solid #3498db;
+}
+.profile-card[_ngcontent-ng-c1847121891]   h2[_ngcontent-ng-c1847121891] {
+  margin-bottom: 20px;
+  color: #333;
+}
+.profile-card[_ngcontent-ng-c1847121891]   h3[_ngcontent-ng-c1847121891] {
+  margin: 10px 0;
+  color: #555;
+}
+.profile-card[_ngcontent-ng-c1847121891]   p[_ngcontent-ng-c1847121891] {
+  margin: 6px 0;
+  color: #666;
+}
+.actions[_ngcontent-ng-c1847121891] {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.actions[_ngcontent-ng-c1847121891]   .btn[_ngcontent-ng-c1847121891] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.actions[_ngcontent-ng-c1847121891]   .btn-warning[_ngcontent-ng-c1847121891] {
+  background-color: #f39c12;
+  color: #fff;
+}
+.actions[_ngcontent-ng-c1847121891]   .btn-warning[_ngcontent-ng-c1847121891]:hover {
+  background-color: #e67e22;
+}
+.actions[_ngcontent-ng-c1847121891]   .btn-danger[_ngcontent-ng-c1847121891] {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.actions[_ngcontent-ng-c1847121891]   .btn-danger[_ngcontent-ng-c1847121891]:hover {
+  background-color: #c0392b;
+}
+.no-user[_ngcontent-ng-c1847121891] {
+  text-align: center;
+  padding: 50px;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.no-user[_ngcontent-ng-c1847121891]   p[_ngcontent-ng-c1847121891] {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+.no-user[_ngcontent-ng-c1847121891]   .btn-primary[_ngcontent-ng-c1847121891] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.no-user[_ngcontent-ng-c1847121891]   .btn-primary[_ngcontent-ng-c1847121891]:hover {
+  background-color: #2980b9;
+}
+form[_ngcontent-ng-c1847121891] {
+  font-family: Arial, sans-serif;
+  margin-left: 10%;
+}
+table[_ngcontent-ng-c1847121891] {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  background-color: antiquewhite;
+}
+th[_ngcontent-ng-c1847121891], 
+td[_ngcontent-ng-c1847121891] {
+  border: 1px solid #333;
+  padding: 8px 12px;
+  text-align: left;
+}
+th[_ngcontent-ng-c1847121891] {
+  background: #f4f4f4;
+}
+.status-pending[_ngcontent-ng-c1847121891] {
+  color: orange;
+  font-weight: bold;
+}
+.status-completed[_ngcontent-ng-c1847121891] {
+  color: green;
+  font-weight: bold;
+}
+.status-cancelled[_ngcontent-ng-c1847121891] {
+  color: red;
+  font-weight: bold;
+}
+.button[_ngcontent-ng-c1847121891] {
+  padding: 10px 20px;
+  margin: 20px 10px 20px 10%;
+  width: 80%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+/*# sourceMappingURL=profile.component.css.map */</style></head><body><!--nghm-->…
+  <title>Folder</title>
+  <base href="/BookDepot/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css">
+
+  <filterbooks></filterbooks>
+  <app-educational></app-educational>
+  <app-root _nghost-ng-c3227407099="" ng-version="18.2.13" ngh="1" ng-server-context="ssg"><div _ngcontent-ng-c3227407099="" class="body"><header _ngcontent-ng-c3227407099="" class="navbar"><div _ngcontent-ng-c3227407099="" class="logo"><img _ngcontent-ng-c3227407099="" src="Image/logo.jpg" alt="Depot logo" style="height: 40px; width: 40px; border-radius: 50%;"> Book Depot
+</div><nav _ngcontent-ng-c3227407099="" class="nav-links"><a _ngcontent-ng-c3227407099="" routerlink="customer/login" ng-reflect-router-link="customer/login" href="/BookDepot/customer/login"><button _ngcontent-ng-c3227407099="" class="fancy-button">SignUp/Login</button></a><a _ngcontent-ng-c3227407099="" routerlink="customer/home" routerlinkactive="active" ng-reflect-router-link="customer/home" href="/BookDepot/customer/home">Home</a><a _ngcontent-ng-c3227407099="" routerlink="customer/about" routerlinkactive="active" ng-reflect-router-link="customer/about" href="/BookDepot/customer/about">About</a><a _ngcontent-ng-c3227407099="" routerlink="customer/service" routerlinkactive="active" ng-reflect-router-link="customer/service" href="/BookDepot/customer/service">Services</a><a _ngcontent-ng-c3227407099="" routerlink="customer/profile" routerlinkactive="active" ng-reflect-router-link="customer/profile" href="/BookDepot/customer/profile">Profile</a></nav></header><router-outlet _ngcontent-ng-c3227407099=""></router-outlet><app-profile _nghost-ng-c1847121891="" ngh="0"><div _ngcontent-ng-c1847121891="" class="no-user"><p _ngcontent-ng-c1847121891="">No user data found. Please login again.</p><a _ngcontent-ng-c1847121891="" routerlink="/login" class="btn btn-primary" ng-reflect-router-link="/login" href="/BookDepot/login">Go to Login</a></div><!--bindings={
+  "ng-reflect-ng-if-else": "[object Object]"
+}--><!--container--><button _ngcontent-ng-c1847121891="" class="button button-primary"> Show My Orders
+</button><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-profile><!--container--><footer _ngcontent-ng-c3227407099="" class="footer"><p _ngcontent-ng-c3227407099=""> © 2025 Book Depot.- Your Knowledge Hub. Designed with modern touch.Call Us: +91 62024555773 </p><div _ngcontent-ng-c3227407099="" class="footer-links"><a _ngcontent-ng-c3227407099="" href="#">About Us</a><a _ngcontent-ng-c3227407099="" href="#">Privacy Policy</a><a _ngcontent-ng-c3227407099="" href="#">Terms of Service</a><a _ngcontent-ng-c3227407099="" routerlink="/admin" ng-reflect-router-link="/admin" href="/BookDepot/admin">AdminPage</a><a _ngcontent-ng-c3227407099="" routerlink="customer/contact" routerlinkactive="active" ng-reflect-router-link="customer/contact" href="/BookDepot/customer/contact">Contact</a></div></footer></div></app-root>
+  <router-outlet></router-outlet>
+  <app-profile></app-profile>
+  <app-order-page></app-order-page>
+  <app-selling-page></app-selling-page>
+  <app-shoping-page></app-shoping-page>
+  <app-registration-form></app-registration-form>
+  <app-comptative></app-comptative>
+  <app-about></app-about>
+  <app-libarary></app-libarary>
+  <app-forgate-password></app-forgate-password>
+  <app-bank-detail></app-bank-detail>
+  <app-payment-cinfrm></app-payment-cinfrm>
+  <app-reset-password></app-reset-password>
+  <app-contact></app-contact>
+  <app-edit-profile></app-edit-profile>
+  <app-payment></app-payment>
+  <app-payment-cinfrm></app-payment-cinfrm>
+  <app-admin-dashboard></app-admin-dashboard>
+<script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"0":"t0","1":"t1","5":"t2"},"c":{"0":[{"i":"t1","r":1}],"1":[],"5":[]}},{"c":{"17":[{"i":"c1847121891","r":1}]}}]}</script></body></html>
