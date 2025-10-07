@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/customer/payment.component.css"],
+  "sourcesContent": [".payment-container {\r\n  max-width: 400px;\r\n  margin: 40px auto;\r\n  padding: 24px;\r\n  background: #fff;\r\n  border-radius: 8px;\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);\r\n  text-align: center;\r\n}\r\n.payment-container h2 {\r\n  margin-bottom: 24px;\r\n}\r\ninput[type=\"number\"] {\r\n  width: 100%;\r\n  padding: 8px 10px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  font-size: 15px;\r\n  margin-bottom: 16px;\r\n}\r\nbutton {\r\n  padding: 10px 24px;\r\n  background: #007bff;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 4px;\r\n  font-size: 16px;\r\n  cursor: pointer;\r\n}\r\n"],
+  "mappings": ";AAAA,CAAC;AACC,aAAW;AACX,UAAQ,KAAK;AACb,WAAS;AACT,cAAY;AACZ,iBAAe;AACf,cAAY,EAAE,IAAI,IAAI,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AACpC,cAAY;AACd;AACA,CATC,kBASkB;AACjB,iBAAe;AACjB;AACA,KAAK,CAAC;AACJ,SAAO;AACP,WAAS,IAAI;AACb,UAAQ,IAAI,MAAM;AAClB,iBAAe;AACf,aAAW;AACX,iBAAe;AACjB;AACA;AACE,WAAS,KAAK;AACd,cAAY;AACZ,SAAO;AACP,UAAQ;AACR,iBAAe;AACf,aAAW;AACX,UAAQ;AACV;",
+  "names": []
+}
