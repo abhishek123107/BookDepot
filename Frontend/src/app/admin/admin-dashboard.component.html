@@ -178,10 +178,21 @@
       <p><strong>Book:</strong> {{ selectedOrder.book?.title }}</p>
       <p><strong>Author:</strong> {{ selectedOrder.book?.author }}</p>
       <p><strong>Customer:</strong> {{ selectedOrder.customer_name }}</p>
-      <p><strong>Address:</strong> {{ selectedOrder.address }}</p>
+      <label for="editAddress"><strong>Address:</strong></label>
+      <textarea
+        id="editAddress"
+        rows="3"
+        [(ngModel)]="selectedOrder.address"
+        class="w-full p-2 border"
+      ></textarea>
       <p><strong>Phone:</strong> {{ selectedOrder.phone }}</p>
       <p><strong>Status:</strong> {{ selectedOrder.status }}</p>
-      <button (click)="closeOrderDetails()">Close</button>
+      <div class="mt-2 flex gap-2">
+        <button class="btn btn-primary" (click)="saveOrderAddress()">
+          Save Address
+        </button>
+        <button class="btn" (click)="closeOrderDetails()">Close</button>
+      </div>
     </div>
   </div>
 </div>

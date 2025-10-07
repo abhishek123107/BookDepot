@@ -172,4 +172,30 @@ export class AdminDashboardComponent implements OnInit {
       },
     });
   }
+
+  // Save updated address for selected order
+  saveOrderAddress() {
+    if (!this.selectedOrder) return;
+    const id =
+      this.selectedOrder.id ||
+      this.selectedOrder._id ||
+      this.selectedOrder.raw?.id ||
+      this.selectedOrder.raw?._id;
+    const address = this.selectedOrder.address;
+    if (!id) {
+      alert('Order id not found');
+      return;
+    }
+    this.ApiService.updateOrderAddress(id, address).subscribe({
+      next: (res) => {
+        alert('Address updated');
+        this.closeOrderDetails();
+        this.loadOrders();
+      },
+      error: (err) => {
+        console.error('Failed to update address', err);
+        alert('Failed to update address');
+      },
+    });
+  }
 }
