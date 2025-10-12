@@ -1,10 +1,2 @@
 import './polyfills.server.mjs';
-import {
-  main_server_default
-} from "./chunk-ALKL4JDE.mjs";
-import "./chunk-OWAFOYO7.mjs";
-import "./chunk-PTRYWQQD.mjs";
-export {
-  main_server_default as default
-};
-//# sourceMappingURL=main.server.mjs.map
+import{a}from"./chunk-LYI7PJAU.mjs";import"./chunk-GRVLHLSJ.mjs";import"./chunk-5XUXGTUW.mjs";export{a as default};
