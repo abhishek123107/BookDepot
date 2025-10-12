@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  selectedRole: string = 'user';
   returnUrl: string = '';
 
   private apiUrl = 'http://127.0.0.1:8000/api/login/';
@@ -39,13 +40,22 @@ export class LoginComponent {
     const payload = {
       email: this.email,
       password: this.password,
+      role: this.selectedRole,
     };
 
     this.http.post<any>(this.apiUrl, payload).subscribe({
       next: (res) => {
         if (res.status === 'success') {
-          localStorage.setItem('user', JSON.stringify(res.user));
+          // If server returned a role, prefer that; otherwise use selectedRole
+          const userObj = res.user || {};
+          if (!userObj.role) userObj.role = this.selectedRole;
+          localStorage.setItem('user', JSON.stringify(userObj));
           alert('✅ Login successful!');
+          // If admin selected (or server indicates admin), go to admin page
+          if (userObj.role === 'admin' || this.selectedRole === 'admin') {
+            this.router.navigate(['/admin']);
+            return;
+          }
           const dest = this.returnUrl || '/customer/profile';
           this.router.navigate([dest]);
         } else {

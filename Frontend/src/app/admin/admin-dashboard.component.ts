@@ -28,6 +28,9 @@ export class AdminDashboardComponent implements OnInit {
     },
   ];
   newBook = { title: '', author: '', price: 0, category: '', image: '' };
+  // Local image selection for admin add-book
+  selectedImageFile: File | null = null;
+  previewImageUrl: string | null = null;
 
   // ===== Orders =====
   orders = [
@@ -43,6 +46,9 @@ export class AdminDashboardComponent implements OnInit {
 
   // ===== Users =====
   users: any[] = [];
+  userCount: number = 0;
+  bookCount: number = 0;
+  orderCount: number = 0;
 
   constructor(
     private ApiService: ApiService,
@@ -62,6 +68,38 @@ export class AdminDashboardComponent implements OnInit {
 
     this.loadUsers();
     this.loadOrders();
+    this.loadCounts();
+  }
+
+  loadCounts() {
+    // Users
+    this.ApiService.getUsersCount().subscribe({
+      next: (data: any) => {
+        if (Array.isArray(data)) this.userCount = data.length;
+        else if (data && Array.isArray(data)) this.userCount = data.length;
+        else if (data && typeof data === 'object' && data.length)
+          this.userCount = data.length;
+      },
+      error: (err) => console.error('Error fetching users count', err),
+    });
+
+    // Orders
+    this.ApiService.getOrdersCount().subscribe({
+      next: (body: any) => {
+        if (body && body.success && Array.isArray(body.orders))
+          this.orderCount = body.orders.length;
+      },
+      error: (err) => console.error('Error fetching orders count', err),
+    });
+
+    // Books
+    this.ApiService.getBooksCount().subscribe({
+      next: (res: any) => {
+        if (res && res.success && typeof res.count === 'number')
+          this.bookCount = res.count;
+      },
+      error: (err) => console.error('Error fetching books count', err),
+    });
   }
 
   setActiveTab(tab: string) {
@@ -75,9 +113,13 @@ export class AdminDashboardComponent implements OnInit {
       return;
     }
 
+    // Prefer an admin-selected local image preview, then provided URL, then placeholder
     const bookPayload = {
       ...this.newBook,
-      image: this.newBook.image || 'https://via.placeholder.com/100',
+      image:
+        this.previewImageUrl ||
+        this.newBook.image ||
+        'https://via.placeholder.com/100',
     };
 
     // Normalize admin category input to app category keys
@@ -114,7 +156,38 @@ export class AdminDashboardComponent implements OnInit {
     });
 
     alert(`Book added to ${target} category`);
+    // cleanup preview object URL and selected file
+    if (this.previewImageUrl) {
+      try {
+        URL.revokeObjectURL(this.previewImageUrl);
+      } catch (e) {}
+    }
+    this.selectedImageFile = null;
+    this.previewImageUrl = null;
     this.newBook = { title: '', author: '', price: 0, category: '', image: '' };
+  }
+
+  onImageSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input && input.files && input.files.length > 0) {
+      this.selectedImageFile = input.files[0];
+      // revoke previous preview if any
+      if (this.previewImageUrl) {
+        try {
+          URL.revokeObjectURL(this.previewImageUrl);
+        } catch (e) {}
+      }
+      this.previewImageUrl = URL.createObjectURL(this.selectedImageFile);
+    } else {
+      // cleared
+      if (this.previewImageUrl) {
+        try {
+          URL.revokeObjectURL(this.previewImageUrl);
+        } catch (e) {}
+      }
+      this.selectedImageFile = null;
+      this.previewImageUrl = null;
+    }
   }
 
   // Load Users from backend

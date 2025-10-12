@@ -1,5 +1,3 @@
-
-
 <div class="body">
   <header>
     <h1>Library Management System</h1>
@@ -8,297 +6,129 @@
 
   <nav>
     <div class="dropdown">
-  <button class="dropbtn" (click)="toggleDropdown()">
-    {{ dropbtn }}
-  </button>
-  
-  <div class="dropdown-content" *ngIf="isOpen">
-    <th>Only NCERT Books</th>
-    <a (click)="onClick()">Class 6th {{ btnText }} </a>
-    <a (click)="onClick()">Class 7th {{ btnText }} </a>
-    <a (click)="onClick()">Class 8th {{ btnText }} </a>
-    <a (click)="onClick()">Class 9th {{ btnText }} </a>
-    <a (click)="onClick()">Class 10th {{ btnText }} </a>
-    <a (click)="onClick()">Class 11th {{ btnText }} </a>
-    <a (click)="onClick()">Class 12th {{ btnText }} </a>
-  </div>
-</div>
+      <button class="dropbtn" (click)="toggleDropdown()">
+        {{ dropbtn }}
+      </button>
+
+      <div class="dropdown-content" *ngIf="isOpen">
+        <th>Categories</th>
+        <a *ngFor="let c of bookCategory" (click)="selectSection(c)">{{ c }}</a>
+      </div>
+    </div>
   </nav>
   <div class="dropdown-child-content" *ngIf="isChildrenBooks">
-    <a routerLink="customer/home">Science</a>
-    <a routerLink="customer/home">Social-Science</a>
-    <a routerLink="customer/home">Mathematics</a>
-    <a routerLink="customer/home">English</a>
-    <a routerLink="customer/home">Hindi</a>
-    <a routerLink="customer/home">Sanskrit</a>
-
+    <a routerLink="/customer/home">Science</a>
+    <a routerLink="/customer/home">Social-Science</a>
+    <a routerLink="/customer/home">Mathematics</a>
+    <a routerLink="/customer/home">English</a>
+    <a routerLink="/customer/home">Hindi</a>
+    <a routerLink="/customer/home">Sanskrit</a>
   </div>
 
   <div class="container">
-
     <!-- Search Bar -->
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search books ..." [(ngModel)]="searchText">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search books ..."
+        [(ngModel)]="searchText"
+      />
     </div>
 
     <!-- Books Table -->
-    <h2 id="books">Academic/Educational Books</h2>
+    <h2 id="books">{{ selectedSection }} Books</h2>
 
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-</div>
-<div class="table-container">
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-    <h2 id="books">Literature & fiction Books</h2>
-
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-    <h2 id="books">Non-Fiction Books</h2>
-
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-
-   <h2 id="books">Religious & Spiritual Books</h2>
-
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-   <h2 id="books">Compatative Exam Books</h2>
-
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-
-    <h2 id="books">Children's Books</h2>
-
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-
-    <h2 id="books">Hobbies and skill Development Books</h2>
-
-<div class="table-container">
-  <table id="bookTable">
-    <thead>
-      <tr>
-        <th>Book-Name</th>
-        <th>Author</th>
-        <th>View & Read</th>
-      </tr>
-    </thead>
-  </table>
-
-  <div class="table-scroll">
-    <table>
-      <tbody>
-        <tr *ngFor="let book of books | filter: searchText">
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>
-            <ng-container *ngIf="book.pdf; else noPdf">
-              <a [href]="book.pdf" target="_blank">View PDF</a>
-            </ng-container>
-            <ng-template #noPdf>
-              <span>Not available</span>
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
+    <div class="table-container">
+      <table id="bookTable">
+        <thead>
+          <tr>
+            <th>Book-Name</th>
+            <th>Author</th>
+            <th>View & Read</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="table-container">
+      <div class="table-scroll">
+        <table>
+          <tbody>
+            <tr *ngFor="let book of currentBooks | filter : searchText">
+              <td>{{ book.title }}</td>
+              <td>{{ book.author }}</td>
+              <td>
+                <ng-container *ngIf="book.pdf; else noPdf">
+                  <a [href]="book.pdf" target="_blank">View PDF</a>
+                </ng-container>
+                <ng-template #noPdf>
+                  <span>Not available</span>
+                </ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Add Book Form -->
-    <h2 id="add-book" style="margin-top: 2rem;">Add New Book</h2>
-    <form id="bookForm">
-      <input type="text" id="title" placeholder="Book Title" required>
-      <input type="text" id="author" placeholder="Author" required>
-      <select id="category" required>
-        <option  *ngFor="let category of bookCategory">{{category}}</option>
+    <h2 id="add-book" style="margin-top: 2rem">Add New Book</h2>
+    <form id="bookForm" (submit)="addBook(); $event.preventDefault()">
+      <input
+        type="text"
+        id="title"
+        placeholder="Book Title"
+        [(ngModel)]="newTitle"
+        name="title"
+        required
+      />
+      <input
+        type="text"
+        id="author"
+        placeholder="Author"
+        [(ngModel)]="newAuthor"
+        name="author"
+        required
+      />
+
+      <!-- Local PDF upload (client-side preview only in this demo) -->
+      <label for="localPdf">Choose your PDF file</label>
+      <input
+        type="file"
+        id="localPdf"
+        accept="application/pdf"
+        (change)="onPdfSelected($event)"
+      />
+      <div *ngIf="previewPdfUrl">
+        <a [href]="previewPdfUrl" target="_blank">Preview selected PDF</a>
+      </div>
+
+      <!-- Or choose from system library -->
+      <label for="libraryPdf"></label>
+      <select
+        id="libraryPdf"
+        [(ngModel)]="selectedLibraryPdf"
+        name="libraryPdf"
+      >
+        <option *ngFor="let p of availablePdfs" [value]="p">{{ p }}</option>
       </select>
-      
+
+      <input
+        type="text"
+        id="pdf"
+        placeholder="PDF URL (optional)"
+        [(ngModel)]="newPdf"
+        name="pdf"
+      />
+      <select id="category" [(ngModel)]="selectedSection" name="category">
+        <option *ngFor="let category of bookCategory">{{ category }}</option>
+      </select>
+
       <button type="submit">Add Book</button>
     </form>
-
   </div>
 
   <footer>
     <p>© 2025 Library Management System</p>
   </footer>
-  </div>
-
-
-
-
-
-  
+</div>

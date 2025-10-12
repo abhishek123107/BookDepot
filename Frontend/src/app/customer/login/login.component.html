@@ -31,6 +31,32 @@
       />
     </div>
 
+    <!-- Role selector (Admin / User) -->
+    <div class="form-group">
+      <label>Login as</label>
+      <div>
+        <label class="mr-3"
+          ><input
+            type="radio"
+            name="role"
+            [(ngModel)]="selectedRole"
+            value="user"
+            checked
+          />
+          User</label
+        >
+        <label
+          ><input
+            type="radio"
+            name="role"
+            [(ngModel)]="selectedRole"
+            value="admin"
+          />
+          Admin</label
+        >
+      </div>
+    </div>
+
     <!-- Submit Button -->
     <button
       type="submit"

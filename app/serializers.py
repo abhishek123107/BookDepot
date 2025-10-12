@@ -65,6 +65,7 @@ class CustomerSerializer(serializers.Serializer):
     password = serializers.CharField(max_length=200, write_only=True)
     phone = serializers.CharField(required=True)
     address = serializers.CharField(required=True, max_length=200)
+    role = serializers.CharField(required=False, default='user')
 
     def validate_phone(self, value):
         # basic validation: phone must be digits and 10-15 chars
@@ -91,6 +92,9 @@ class CustomerSerializer(serializers.Serializer):
     def create(self, validated_data):   # ✅ अब यह सही जगह है
         validated_data["password"] = make_password(validated_data["password"])
         try:
+            # Ensure role defaults to 'user' if not provided
+            if 'role' not in validated_data:
+                validated_data['role'] = 'user'
             customer = Customer(**validated_data)
             customer.save()
             return customer

@@ -57,6 +57,7 @@ export class RegistrationFormComponent implements OnInit {
         confirmPassword: ['', Validators.required],
         phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
         address: ['', [Validators.required, Validators.minLength(5)]],
+        role: ['user'],
       },
       { validators: this.passwordMatchValidator }
     );
@@ -93,6 +94,7 @@ export class RegistrationFormComponent implements OnInit {
       password: this.registerForm.value.password, // ✅ corrected
       phone: this.registerForm.value.phone,
       address: this.registerForm.value.address,
+      role: this.registerForm.value.role || 'user',
     };
 
     this.http

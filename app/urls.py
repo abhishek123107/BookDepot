@@ -33,6 +33,7 @@ urlpatterns = [
     path("api/order/update-address/", views.update_order_address, name="update-order-address"),
     path("api/order/get/", views.get_order_by_id, name="get-order-by-id"),
     path('pay/', pay, name='pay'),
+    path('api/books/count/', views.get_books_count, name='books-count'),
 
 ]
 

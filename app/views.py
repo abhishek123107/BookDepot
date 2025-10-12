@@ -23,7 +23,7 @@ from rest_framework import serializers as drf_serializers
 from mongoengine.errors import NotUniqueError
 from rest_framework.response import Response
 from rest_framework import status
-from app.models import Customer, LoginForm, Order   
+from app.models import Customer, LoginForm, Order, Book  
 from app.serializers import CustomerSerializer, OrderSerializer
 from mongoengine import Document, fields
 from rest_framework.decorators import api_view
@@ -178,6 +178,17 @@ class AllOrdersAPIView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def get_books_count(request):
+    """Return count of Book documents."""
+    try:
+        count = Book.objects.count()
+        return Response({'success': True, 'count': count})
+    except Exception as e:
+        print('ERROR get_books_count:', str(e))
+        return Response({'success': False, 'message': 'Error fetching book count'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CustomerDetailsAPIView(APIView):
     def get(self, request, customer_id):

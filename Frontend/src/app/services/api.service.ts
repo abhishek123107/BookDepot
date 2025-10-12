@@ -82,6 +82,32 @@ export class ApiService {
     return this.http.get<any>(`${this.baseUrl}/orders/all/`, { headers });
   }
 
+  // Counts
+  getUsersCount(): Observable<any> {
+    // backend customers endpoint returns array; we can count on client or request a server count endpoint later
+    return this.getUsers();
+  }
+
+  getOrdersCount(): Observable<any> {
+    return this.getAllOrders();
+  }
+
+  getBooksCount(): Observable<any> {
+    const headers: any = {};
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        const parsed = JSON.parse(user);
+        if (parsed && parsed.role) {
+          headers['X-User-Role'] = parsed.role;
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
+    return this.http.get<any>(`${this.baseUrl}/books/count/`, { headers });
+  }
+
   // ✅ Update order status (calls the backend endpoint)
   updateOrderStatus(orderId: any, status: string): Observable<any> {
     const headers: any = {};

@@ -34,6 +34,7 @@ class Customer(me.Document):
     password = me.StringField(max_length=200)
     phone = me.StringField(required=True)
     address = me.StringField(required=True, max_length=200)
+    role = me.StringField(default='user', choices=['user', 'admin'])
     reset_token = me.StringField()  # For password reset
 
 
