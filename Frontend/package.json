@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:folder": "node dist/folder/server/server.mjs",
-    "predeploy": "npm run build -- --configuration production",
+    "predeploy": "npm run build -- --configuration production && node scripts/postbuild.js",
     "deploy": "npx angular-cli-ghpages --dir=dist/folder"
   },
   "private": true,
