@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:folder": "node dist/folder/server/server.mjs",
-    "predeploy": "npm run build -- --configuration production && node scripts/postbuild.js",
-    "deploy": "npx angular-cli-ghpages --dir=dist/folder"
+    "predeploy": "npm run build -- --configuration production && node scripts/ensure-index.js",
+    "deploy": "npx angular-cli-ghpages --dir=dist/folder/browser"
   },
   "private": true,
   "dependencies": {

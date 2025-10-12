@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import { BookStoreService } from '../services/book-store.service';
+import { BrowserStorageService } from '../services/browser-storage.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -53,12 +54,13 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     private ApiService: ApiService,
     private bookStore: BookStoreService,
-    private router: Router
+    private router: Router,
+    private storage: BrowserStorageService
   ) {}
 
   ngOnInit(): void {
     // Require admin login — if no user in localStorage, redirect to login and pass returnUrl
-    const user = localStorage.getItem('user');
+    const user = this.storage.getItem('user');
     if (!user) {
       this.router.navigate(['/customer/login'], {
         queryParams: { returnUrl: '/admin' },

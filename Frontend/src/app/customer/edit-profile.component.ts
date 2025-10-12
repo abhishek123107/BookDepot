@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BrowserStorageService } from '../services/browser-storage.service';
 
 @Component({
   selector: 'app-edit-profile',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css'],
 })
@@ -19,7 +26,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private storage: BrowserStorageService
   ) {
     this.profileForm = this.fb.group({
       name: ['', Validators.required],
@@ -30,7 +38,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = this.storage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
       this.profileForm.patchValue({
@@ -50,7 +58,7 @@ export class EditProfileComponent implements OnInit {
         .post<any>(this.updateProfileUrl, updatedData)
         .subscribe((res) => {
           if (res.success) {
-            localStorage.setItem('user', JSON.stringify(res.user));
+            this.storage.setItem('user', JSON.stringify(res.user));
             this.router.navigate(['/profile']);
           }
         });

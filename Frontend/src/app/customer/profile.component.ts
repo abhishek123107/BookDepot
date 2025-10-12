@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { BrowserStorageService } from '../services/browser-storage.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -26,14 +27,18 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private storage: BrowserStorageService
+  ) {}
 
   ngOnInit() {
-    if (typeof window === 'undefined' || !window.localStorage) {
+    if (!this.storage.isBrowser()) {
       // Not running in browser, skip localStorage logic
       return;
     }
-    const storedUser = localStorage.getItem('user');
+    const storedUser = this.storage.getItem('user');
     if (!storedUser) {
       this.router.navigate(['/login']);
       return;
@@ -86,20 +91,19 @@ export class ProfileComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('user');
+    this.storage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
   goToTrackOrder(orderId: string) {
     this.router.navigate(['/track-order', orderId]);
-
   }
 
-  trackOrder(){
+  trackOrder() {
     this.router.navigate(['/trackOrder']);
   }
 
-  updateProfile(){
+  updateProfile() {
     this.router.navigate(['/editProfile']);
-  }  
+  }
 }

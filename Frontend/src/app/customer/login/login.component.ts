@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserStorageService } from '../../services/browser-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,8 @@ export class LoginComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private storage: BrowserStorageService
   ) {}
 
   loginUser() {
@@ -49,7 +51,7 @@ export class LoginComponent {
           // If server returned a role, prefer that; otherwise use selectedRole
           const userObj = res.user || {};
           if (!userObj.role) userObj.role = this.selectedRole;
-          localStorage.setItem('user', JSON.stringify(userObj));
+          this.storage.setItem('user', JSON.stringify(userObj));
           alert('✅ Login successful!');
           // If admin selected (or server indicates admin), go to admin page
           if (userObj.role === 'admin' || this.selectedRole === 'admin') {

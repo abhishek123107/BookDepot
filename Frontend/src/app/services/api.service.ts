@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../customer/order-page/order.model';
+import { BrowserStorageService } from './browser-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,10 @@ export class ApiService {
   private baseUrl = 'http://127.0.0.1:8000/api'; // Django API base URL
   private selectedBook: any = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private storage: BrowserStorageService
+  ) {}
 
   // ✅ Save Order
   saveOrder(order: Order): Observable<any> {
@@ -49,7 +53,7 @@ export class ApiService {
   // ✅ Get all registered users
   getUsers(): Observable<any[]> {
     const headers: any = {};
-    const user = localStorage.getItem('user');
+    const user = this.storage.getItem('user');
     if (user) {
       try {
         const parsed = JSON.parse(user);
@@ -68,7 +72,7 @@ export class ApiService {
   // ✅ Get all orders
   getAllOrders(): Observable<any> {
     const headers: any = {};
-    const user = localStorage.getItem('user');
+    const user = this.storage.getItem('user');
     if (user) {
       try {
         const parsed = JSON.parse(user);
@@ -94,7 +98,7 @@ export class ApiService {
 
   getBooksCount(): Observable<any> {
     const headers: any = {};
-    const user = localStorage.getItem('user');
+    const user = this.storage.getItem('user');
     if (user) {
       try {
         const parsed = JSON.parse(user);
@@ -111,7 +115,7 @@ export class ApiService {
   // ✅ Update order status (calls the backend endpoint)
   updateOrderStatus(orderId: any, status: string): Observable<any> {
     const headers: any = {};
-    const user = localStorage.getItem('user');
+    const user = this.storage.getItem('user');
     if (user) {
       try {
         const parsed = JSON.parse(user);
@@ -135,7 +139,7 @@ export class ApiService {
   // Update order address
   updateOrderAddress(orderId: any, address: string): Observable<any> {
     const headers: any = {};
-    const user = localStorage.getItem('user');
+    const user = this.storage.getItem('user');
     if (user) {
       try {
         const parsed = JSON.parse(user);
