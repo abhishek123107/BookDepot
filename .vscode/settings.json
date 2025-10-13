@@ -1,0 +1,4 @@
+{
+  // Disable automatic JSON schema downloads (helps when schemastore is unreachable)
+  "json.schemaDownload.enable": false
+}

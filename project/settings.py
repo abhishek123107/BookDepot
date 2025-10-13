@@ -43,13 +43,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 DATABASES = {
+    # Use a lightweight SQLite DB for Django internal apps (migrations, sessions, admin)
+    # The application data (customers, orders) use mongoengine and connect to MongoDB separately.
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'customer_db',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb://localhost:27017/customer_db',
-        }  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -104,11 +102,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-from mongoengine import connect
-connect(
-    db="customer_db",
-    host="mongodb://localhost:27017/customer_db"
-)
+# NOTE: mongoengine connection is configured at the top of this file so the
+# application code using mongoengine Documents can access MongoDB.
 
 
 # Password validation

@@ -58,6 +58,8 @@ export class RegistrationFormComponent implements OnInit {
         phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
         address: ['', [Validators.required, Validators.minLength(5)]],
         role: ['user'],
+        // required checkbox to accept terms (template has formControlName="terms")
+        terms: [false, Validators.requiredTrue],
       },
       { validators: this.passwordMatchValidator }
     );
