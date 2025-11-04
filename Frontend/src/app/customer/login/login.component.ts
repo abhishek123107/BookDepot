@@ -7,6 +7,7 @@ import {
   ActivatedRoute,
 } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { BrowserStorageService } from '../../services/browser-storage.service';
 
@@ -29,7 +30,7 @@ export class LoginComponent {
   selectedRole: string = 'user';
   returnUrl: string = '';
 
-  private apiUrl = 'http://127.0.0.1:8000/api/login/';
+  private apiUrl = `${environment.apiUrl}/login/`;
 
   constructor(
     private http: HttpClient,

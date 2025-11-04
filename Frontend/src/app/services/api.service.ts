@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../customer/order-page/order.model';
@@ -8,7 +9,7 @@ import { BrowserStorageService } from './browser-storage.service';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://127.0.0.1:8000/api'; // Django API base URL
+  private baseUrl = environment.apiUrl; // Django API base URL
   private selectedBook: any = null;
 
   constructor(
@@ -64,7 +65,7 @@ export class ApiService {
         // ignore
       }
     }
-    return this.http.get<any[]>(`http://127.0.0.1:8000/customers/`, {
+    return this.http.get<any[]>(`${this.baseUrl}/customers/`, {
       headers,
     });
   }

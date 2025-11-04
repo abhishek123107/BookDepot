@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -7,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports:[CommonModule,ReactiveFormsModule,FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css'],
 })
@@ -30,7 +31,7 @@ export class PaymentComponent {
         this.paymentId = response.razorpay_payment_id;
         // Call backend to transfer to bank
         this.http
-          .post('/api/payment/transfer/', {
+          .post(`${environment.apiUrl}/payment/transfer/`, {
             payment_id: this.paymentId,
             amount: this.amount,
           })

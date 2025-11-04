@@ -6,6 +6,7 @@ import {
   RouterLink,
   RouterModule,
 } from '@angular/router';
+import { environment } from '../../../environments/environment';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookImageService } from '../../services/book-image.service';
@@ -40,7 +41,7 @@ export class TrackOrderComponent implements OnInit {
 
   fetchOrder() {
     this.http
-      .post<any>('http://127.0.0.1:8000/api/order/get/', {
+      .post<any>(`${environment.apiUrl}/order/get/`, {
         order_id: this.orderId,
       })
       .subscribe(

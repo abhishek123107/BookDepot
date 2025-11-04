@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 import {
   FormBuilder,
   FormGroup,
@@ -100,7 +101,7 @@ export class RegistrationFormComponent implements OnInit {
     };
 
     this.http
-      .post('http://127.0.0.1:8000/api/register/', data, {
+      .post(`${environment.apiUrl}/register/`, data, {
         headers: { 'Content-Type': 'application/json' },
       })
       .subscribe({

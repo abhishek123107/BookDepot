@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { FilterPipe } from './filter.pipe';
 import { Router, RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -17,10 +18,10 @@ import { BookStoreService } from '../../services/book-store.service';
   standalone: true,
   imports: [CommonModule, FormsModule, FilterPipe, RouterOutlet],
   templateUrl: './educational.component.html',
-  styleUrl: './educational.component.css',
+  styleUrls: ['./educational.component.css'],
 })
 export class EducationalComponent {
-  private apiUrl = 'https://127.0.0.1  800:/educational';
+  private apiUrl = `${environment.apiUrl}/educational`;
 
   myClassName: string = 'bg-primary';
 

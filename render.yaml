@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: bookdepot-backend
+    env: python
+    plan: free
+    repo: https://github.com/abhishek123107/BookDepot
+    branch: main
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: gunicorn project.wsgi --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        sync: false
+      - key: DJANGO_DEBUG
+        sync: false
+      - key: DJANGO_ALLOWED_HOSTS
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: CORS_ALLOW_ALL
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+    persistentStorage: []

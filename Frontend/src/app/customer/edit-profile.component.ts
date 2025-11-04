@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserStorageService } from '../services/browser-storage.service';
@@ -21,7 +22,7 @@ import { BrowserStorageService } from '../services/browser-storage.service';
 export class EditProfileComponent implements OnInit {
   profileForm: FormGroup;
   user: any;
-  private updateProfileUrl = 'http://127.0.0.1:8000/api/user/update-profile/';
+  private updateProfileUrl = `${environment.apiUrl}/user/update-profile/`;
 
   constructor(
     private fb: FormBuilder,

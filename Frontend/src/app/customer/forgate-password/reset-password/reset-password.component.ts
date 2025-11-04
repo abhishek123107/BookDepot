@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,7 +16,7 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  styleUrls: ['./reset-password.component.css'],
 })
 export class ResetPasswordComponent {
   resetForm: FormGroup;
@@ -23,13 +29,17 @@ export class ResetPasswordComponent {
   ) {
     this.resetForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      new_password: ['', [Validators.required, Validators.minLength(6)]]
+      new_password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   // API call to Django
   resetPassword(email: string, new_password: string): Observable<any> {
-    const url = 'http://127.0.0.1:8000/reset-password/';
+    const url = `${environment.apiUrl.replace(
+      /\/api\/?$/,
+      ''
+    )}/reset-password/`;
+    // The reset-password endpoint is often outside the /api prefix; ensure we strip a trailing /api if present
     return this.http.post<any>(url, { email, new_password });
   }
 
@@ -52,8 +62,7 @@ export class ResetPasswordComponent {
       error: (err) => {
         console.error('Reset Password API Error:', err);
         alert('❌ Error resetting password!');
-      }
+      },
     });
   }
 }
-

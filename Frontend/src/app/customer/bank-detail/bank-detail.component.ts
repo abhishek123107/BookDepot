@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,6 +27,8 @@ export class BankDetailComponent {
   book: any = null;
   paymentSuccess: boolean = false;
   paymentId: string = '';
+  private apiUrl = environment.apiUrl;
+  private apiRoot = environment.apiUrl.replace(/\/api\/?$/, '');
 
   constructor(
     private http: HttpClient,
@@ -64,7 +67,7 @@ export class BankDetailComponent {
         this.paymentId = response.razorpay_payment_id;
         // Call backend to transfer to bank
         this.http
-          .post('http://localhost:8000/api/payment/transfer/', {
+          .post(`${this.apiUrl}/payment/transfer/`, {
             payment_id: this.paymentId,
             amount: this.amount,
           })
@@ -101,7 +104,7 @@ export class BankDetailComponent {
       return;
     }
     const payload = { amount: this.amount, method: 'UPI', upiId: this.upiId };
-    this.http.post('http://localhost:8000/pay/', payload).subscribe({
+    this.http.post(`${this.apiRoot}/pay/`, payload).subscribe({
       next: (res: any) => {
         this.result = `✅ Payment Successful via UPI (${this.upiId})`;
         this.router.navigate(['customer/payment-confirm']);
@@ -121,7 +124,7 @@ export class BankDetailComponent {
       accountNumber: this.accountNumber,
       ifsc: this.ifscCode,
     };
-    this.http.post('http://localhost:8000/pay/', payload).subscribe({
+    this.http.post(`${this.apiRoot}/pay/`, payload).subscribe({
       next: (res: any) => {
         this.result = `✅ Payment Successful via Bank Transfer (${this.accountNumber})`;
         this.router.navigate(['customer/payment-confirm']);
@@ -141,7 +144,7 @@ export class BankDetailComponent {
       cardNumber: this.cardNumber,
       expiry: this.expiry,
     };
-    this.http.post('http://localhost:8000/pay/', payload).subscribe({
+    this.http.post(`${this.apiRoot}/pay/`, payload).subscribe({
       next: (res: any) => {
         this.result = `✅ Payment Successful via Card (${this.cardNumber.slice(
           -4

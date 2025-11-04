@@ -10,21 +10,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-# SSL certificate fix for Gmail SMTP (Windows)
+# Use environment variables for configuration in production-ready deployments
+import os
 import ssl
-ssl._create_default_https_context = ssl.create_default_context(cafile="c:/Users/WELCOME/Desktop/myproject/certs/cacert.pem")
 from pathlib import Path
-# settings.py
+
+# Optional custom CA bundle (set CUSTOM_CA_PATH to absolute path to PEM file)
+custom_ca = os.environ.get('CUSTOM_CA_PATH')
+if custom_ca:
+    try:
+        ssl._create_default_https_context = ssl.create_default_context(cafile=custom_ca)
+    except Exception:
+        # fall back to system default if custom CA cannot be loaded
+        pass
+
+# MongoDB connection: prefer MONGO_URI env var for production (e.g. Atlas)
 from mongoengine import connect, disconnect
-
-# पहले disconnect करो ताकि duplicate alias error न आए
 disconnect(alias='default')
-
-connect(
-    db="customer_db",
-    host="mongodb://localhost:27017/customer_db",
-    alias='default'
-)
+MONGO_URI = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/customer_db')
+connect(host=MONGO_URI, alias='default')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,12 +39,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0ccmuq)_*j=#95)a!73cqkxm0ob^zjh_z*fu@u*(a^pzuhm8t9'
+# Read from environment (set DJANGO_SECRET_KEY in production)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-0ccmuq)_*j=#95)a!73cqkxm0ob^zjh_z*fu@u*(a^pzuhm8t9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
-ALLOWED_HOSTS = []
+# Hosts allowed to serve the application. Comma separated in env var.
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 DATABASES = {
     # Use a lightweight SQLite DB for Django internal apps (migrations, sessions, admin)
@@ -70,13 +76,16 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # WhiteNoise serves static files efficiently in production
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # CORS middleware should be as high as possible
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -149,29 +158,29 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_PASSWORD = 'your_gmail_app_password' # Use Gmail App Password (not your regular password)
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL', 'True').lower() in ('1', 'true', 'yes')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# Where `collectstatic` will collect static files for production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Use WhiteNoise storage for compressed/immutable files in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Angular frontend
-    "https://yourdomain.com",
-]
+# Optionally set CORS_ALLOWED_ORIGINS via env var (comma separated)
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:4200,https://yourdomain.com').split(',')
 
 
 
 LOGIN_DIRECT_URL = 'api/user/profile/'
 LOGOUT_DIRECT_URL = 'api/logout/'
 LOGIN_URL = 'api/login/'
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:4200",
-]
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:4200').split(',')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Router, RouterLink } from '@angular/router';
 import { BrowserStorageService } from '../services/browser-storage.service';
 import { CommonModule } from '@angular/common';
@@ -14,10 +15,9 @@ import { CommonModule } from '@angular/common';
 export class ProfileComponent implements OnInit {
   user: any;
   orders: any[] = [];
-  private apiUrl = 'http://127.0.0.1:8000/api/user/profile/';
-  private ordersUrl = 'http://127.0.0.1:8000/api/customer/orders/';
-  private updateOrderStatusUrl =
-    'http://127.0.0.1:8000/api/order/update-status/';
+  private apiUrl = `${environment.apiUrl}/user/profile/`;
+  private ordersUrl = `${environment.apiUrl}/customer/orders/`;
+  private updateOrderStatusUrl = `${environment.apiUrl}/order/update-status/`;
   showForm: boolean = false;
 
   showOrder() {
