@@ -12,6 +12,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify required secrets
+        run: |
+          if [ -z "${{ secrets.BACKEND_API_URL }}" ]; then
+            echo "Required secret BACKEND_API_URL is missing. Add it in Repository -> Settings -> Secrets -> Actions." >&2
+            exit 1
+          fi
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:

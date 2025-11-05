@@ -15,6 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify required secrets
+        run: |
+          if [ -z "${{ secrets.RENDER_API_KEY }}" ] || [ -z "${{ secrets.RENDER_SERVICE_ID }}" ]; then
+            echo "Required secrets RENDER_API_KEY and/or RENDER_SERVICE_ID are missing. Add them in Repository -> Settings -> Secrets -> Actions." >&2
+            exit 1
+          fi
+
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
