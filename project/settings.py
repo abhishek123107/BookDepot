@@ -26,9 +26,21 @@ if custom_ca:
 
 # MongoDB connection: prefer MONGO_URI env var for production (e.g. Atlas)
 from mongoengine import connect, disconnect
+import logging
 disconnect(alias='default')
 MONGO_URI = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/customer_db')
-connect(host=MONGO_URI, alias='default')
+try:
+    # Use a short server selection timeout so startup fails fast when DB is unreachable
+    connect(host=MONGO_URI, alias='default', serverSelectionTimeoutMS=5000)
+except Exception as e:
+    # Log a concise warning — avoid printing full URI in logs for security
+    masked = MONGO_URI
+    try:
+        if '://' in MONGO_URI and not MONGO_URI.startswith('mongodb://localhost'):
+            masked = MONGO_URI.split('://', 1)[0] + '://<REDACTED>'
+    except Exception:
+        masked = '<invalid-mongo-uri>'
+    logging.warning("Could not connect to MongoDB at startup (MONGO_URI=%s): %s", masked, e)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
