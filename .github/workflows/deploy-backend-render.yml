@@ -36,14 +36,17 @@ jobs:
             exit 1
           fi
           echo "Triggering a new deploy for service $RENDER_SERVICE_ID"
-          response=$(curl -s -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
+          # Use a short curl timeout and capture any error response
+          response=$(curl -sS -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
             -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Accept: application/json" \
             -H "Content-Type: application/json" \
-            -d '{"clearCache":true}')
+            -d '{"clearCache":true}' --max-time 15) || true
           echo "Render response: $response"
-          deployId=$(echo "$response" | jq -r .id)
-          if [ "$deployId" = "null" ] || [ -z "$deployId" ]; then
-            echo "Failed to create deploy: $response" >&2
+          deployId=$(echo "$response" | jq -r .id // empty)
+          message=$(echo "$response" | jq -r .message // empty)
+          if [ -z "$deployId" ]; then
+            echo "Failed to create deploy. Response message: $message. Full response: $response" >&2
             exit 1
           fi
           echo "Created deploy: $deployId"
@@ -59,19 +62,20 @@ jobs:
           attempts=0
           max_attempts=90 # ~15 minutes polling (90 * 10s)
           while [ $attempts -lt $max_attempts ]; do
-            status=$(curl -s -H "Authorization: Bearer $RENDER_API_KEY" "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys/$deploy_id" | jq -r .status)
+            resp=$(curl -sS -H "Authorization: Bearer $RENDER_API_KEY" "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys/$deploy_id" --max-time 10) || true
+            status=$(echo "$resp" | jq -r .status // empty)
             echo "[$attempts] status: $status"
             if [ "$status" = "failed" ]; then
-              echo "Deploy failed." >&2
+              echo "Deploy failed. Full response: $resp" >&2
               exit 1
             fi
-            if [ "$status" = "succeeded" ] || [ "$status" = "succeeded" ]; then
+            if [ "$status" = "succeeded" ]; then
               echo "Deploy succeeded." && exit 0
             fi
             attempts=$((attempts+1))
             sleep 10
           done
-          echo "Timeout waiting for deploy to finish" >&2
+          echo "Timeout waiting for deploy to finish after $((max_attempts*10)) seconds" >&2
           exit 1
       - name: Post-deploy smoke test
         if: ${{ always() }}
@@ -89,9 +93,10 @@ jobs:
             echo "Testing $u"
             attempts=0
             while [ $attempts -lt 12 ]; do
-              status=$(curl -s -o /dev/null -w "%{http_code}" "$u" || echo "000")
+              # enforce a timeout and capture HTTP status
+              status=$(curl -sS -o /dev/null -w "%{http_code}" "$u" --max-time 10 || echo "000")
               echo "Status: $status"
-              if [ "$status" = "200" ] || [ "$status" = "301" ] || [ "$status" = "302" ]; then
+              if [ "$status" = "200" ] || [ "$status" = "301" ] || [ "$status" = "302" ] || [ "$status" = "204" ]; then
                 echo "Smoke test passed for $u"
                 success=1
                 break 2
@@ -101,6 +106,6 @@ jobs:
             done
           done
           if [ $success -eq 0 ]; then
-            echo "Smoke test failed: none of the endpoints responded with 200/3xx" >&2
+            echo "Smoke test failed: none of the endpoints responded with 200/3xx/204" >&2
             exit 1
           fi

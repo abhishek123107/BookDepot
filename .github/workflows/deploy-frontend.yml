@@ -23,10 +23,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
+          cache: 'npm'
 
       - name: Install dependencies
         working-directory: ./Frontend
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit --progress=false
 
       - name: Inject backend URL into environment.prod.ts
         working-directory: ./Frontend
@@ -38,22 +39,33 @@ jobs:
             exit 1
           fi
           mkdir -p src/environments
-          cat > src/environments/environment.prod.ts <<EOF
-          export const environment = {
-            production: true,
-            apiUrl: '$BACKEND_API_URL'
-          };
-          EOF
+          # Use a quoted heredoc to avoid variable expansion issues and ensure exact content
+          cat > src/environments/environment.prod.ts <<'EOF'
+export const environment = {
+  production: true,
+  apiUrl: '${BACKEND_API_URL}'
+};
+EOF
 
       - name: Build (production)
         working-directory: ./Frontend
         run: npm run build -- --configuration production
 
+      - name: Show build output
+        working-directory: ./Frontend
+        run: |
+          echo "Build output listing:"
+          ls -la dist || true
+          ls -la dist/folder || true
+          find dist -maxdepth 3 -type f | head -n 50 || true
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Frontend/dist/folder/browser
+          # Angular outputPath is dist/folder per angular.json
+          publish_dir: ./Frontend/dist/folder
           publish_branch: gh-pages
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
+          keep_files: false
